@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<script src="{% static 'js/responsiveslides.min.js' %}"></script>
+<div class="image-slider">
+    <ul class="rslides" id="slider1">
+        <li><img src="{%static 'image/1.jpg'%}" alt=""></li>
+        <li><img src="{%static 'image/2.jpg'%}" alt=""></li>
+        <li><img src="{%static 'image/3.jpg'%}" alt=""></li>
+    </ul>
+</div>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+
+        // Slideshow 1
+        $("#slider1").responsiveSlides({
+            maxwidth: 1600,
+            speed: 600
+        });
+    });
+</script>

@@ -1,0 +1,75 @@
+{% load staticfiles %}
+<div class="nav-top">
+<div class="row">
+    <div class="col-xs-2 col-sm-3 col-md-4">
+        <img src="{% static 'image/logo.png' %}" class="img-responsive logo" alt="">
+    </div>
+    <div class=" col-xs-10 col-sm-9 col-md-8">
+        <div class="top_heading">
+            <span class="heading">  Universal Human Values & Professional Ethics </span>
+            <div class="heading_text"> Specially Designed To Support VE Cell @ AKGEC, Ghaziabad</div>
+        </div>
+    </div>
+    </div>
+</div>
+<nav>
+    <div class="nav-fostrap">
+        <ul>
+            <li><a href="{%url 'home'%}">Home</a></li>
+
+            <li><a href="javascript:void(0)">About UHVPE</a>
+                <ul class="dropdown">
+                    <li><a href="{%url 'director-message'%}">Director Message</a></li>
+                    <li><a href="{%url 'syllabus'%}">UHVPE Syllabus</a></li>
+                    <li><a href="{%url 'guidelines'%}">UHVPE Guidelines</a></li>
+                </ul>
+            </li>
+
+            <li><a>Resources</a>
+                <ul class="dropdown">
+                    <li><a href="">Presentation</a></li>
+                    <li><a href="">Video Lectures</a></li>
+                    <li><a href="">Practice Sessions</a></li>
+                    <li><a href="">Posters</a></li>
+                    <li><a href="{%url 'projects'%}">Socially Relevant Projects </a></li>
+                    <li><a href="{%url 'books'%}">Books</a></li>
+                    <li><a href="">Notes, Question papers</a></li>
+                </ul>
+            </li>
+
+            <li><a href="javascript:void(0)">Activities</a>
+                <ul class="dropdown">
+                    <li><a href="">Past Workshop</a></li>
+                    <li><a href="">Events</a></li>
+                    <li><a href="">UHVPE Program</a></li>
+                </ul>
+            </li>
+
+            <li><a href="javascript:void(0)">UHVPE @ AKGEC</a>
+                <ul class="dropdown">
+                    <li><a href="{%url 'journey'%}">Journey So Far</a></li>
+                    <li><a href="{%url 'impact'%}">Impact</a></li>
+                    <li><a href="{%url 'future'%}">Future Plans</a></li>
+                    <li><a href="">Past Circulars</a></li>
+                    <li><a href="{%url 'nodal-center'%}">Nodal Centers</a></li>
+                </ul>
+            </li>
+
+            <li><a href="javascript:void(0)">Upcoming Workshop</a></li>
+            <li><a href="{%url 'faq'%}">FAQ</a></li>
+            <li><a href="">Contact</a></li>
+
+        </ul>
+    </div>
+    <div class="nav-bg-fostrap">
+        <div class="navbar-fostrap"><span></span><span></span><span></span></div>
+        <p href="" class="title-mobile">UHVPE</p>
+    </div>
+</nav>
+<script > $(document).ready(function(){
+    $('.navbar-fostrap').click(function(){
+      $('.nav-fostrap').toggleClass('visible');
+      $('body').toggleClass('cover-bg');
+    });
+  });
+</script>

@@ -1,0 +1,7 @@
+<div class="center_content">
+    {% if page %}
+    {{page.content|safe}}
+    {% else %}
+    <p> No content to show. Please add content to this page.</p>
+    {% endif %}
+</div>
