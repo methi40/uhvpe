@@ -2,6 +2,10 @@
 {% block content %}
 {% include 'header.html' %}
 {% include 'slider.html' %}
+{% if object_list %}
+{% include 'table.html' %}
+{% else %}
 {% include 'content.html' %}
+{% endif %}
 {% include 'footer.html' %}
 {% endblock %}

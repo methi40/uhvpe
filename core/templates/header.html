@@ -27,13 +27,14 @@
 
             <li><a>Resources</a>
                 <ul class="dropdown">
-                    <li><a href="">Presentation</a></li>
-                    <li><a href="">Video Lectures</a></li>
-                    <li><a href="">Practice Sessions</a></li>
-                    <li><a href="">Posters</a></li>
+                    <li><a href="{%url 'presentation' %}">Presentation</a></li>
+                    <li><a href="{%url 'video-lecture' %}">Video Lectures</a></li>
+                    <li><a href="{%url 'practice-session' %}">Practice Sessions</a></li>
+                    <li><a href="{%url 'poster' %}">Posters</a></li>
                     <li><a href="{%url 'projects'%}">Socially Relevant Projects </a></li>
                     <li><a href="{%url 'books'%}">Books</a></li>
-                    <li><a href="">Notes, Question papers</a></li>
+                    <li><a href="{%url 'note' %}">Notes</a></li>
+                    <li><a href="{%url 'question-paper' %}">Question Papers</a></li>
                 </ul>
             </li>
 
@@ -50,14 +51,14 @@
                     <li><a href="{%url 'journey'%}">Journey So Far</a></li>
                     <li><a href="{%url 'impact'%}">Impact</a></li>
                     <li><a href="{%url 'future'%}">Future Plans</a></li>
-                    <li><a href="">Past Circulars</a></li>
+                    <li><a href="{%url 'circular' %}">Past Circulars</a></li>
                     <li><a href="{%url 'nodal-center'%}">Nodal Centers</a></li>
                 </ul>
             </li>
 
             <li><a href="javascript:void(0)">Upcoming Workshop</a></li>
             <li><a href="{%url 'faq'%}">FAQ</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="{%url 'contact'%}">Contact</a></li>
 
         </ul>
     </div>

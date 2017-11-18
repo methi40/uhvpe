@@ -1,29 +1,25 @@
+{% load static %}
 <div class="container-fluid">
     <div class="main_table">
         <div class="heading">
-            <p> Admin Index</p>
+            <p> {{table_name}}</p>
         </div>
         <div class="table-responsive">
             <table class="table" style="overflow-x:auto;">
                 <thead>
                 <tr>
-                    <th>Booked By</th>
-                    <th>Date</th>
-
+                    <th>Name</th>
+                    <th>Link</th>
                 </tr>
                 </thead>
                 <tbody>
-
+                {% get_media_prefix as media_link %}
+                {% for object in object_list %}
                 <tr>
-                    <td>Mary</td>
-                    <td><a>Moe</a></td>
-
+                    <td>{{object.name}}</td>
+                    <td><a href="{{media_link}}{{object.file}}">Download</a></td>
                 </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-
-                </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>

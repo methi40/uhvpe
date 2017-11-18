@@ -1,9 +1,11 @@
 from django.conf.urls import url
-from .views import IndexView, DirectorMessageView, UHVPESyllabus, GuidelineView, SociallyRelevantProjectView, \
-    BookView, FAQView, JourneySoFarView, ImpactView, FuturePlansView, NodalCenterView
+from .views import (IndexView, DirectorMessageView, UHVPESyllabus, GuidelineView, SociallyRelevantProjectView,
+                    BookView, FAQView, JourneySoFarView, ImpactView, FuturePlansView, NodalCenterView, PresentationView,
+                    NoteView, QuestionPaperView, PracticeSessionView, PosterView, CircularView, VideoLectureView,
+                    ContactView, WorkshopRegistrationView)
 
 urlpatterns = [
-    url(r'^directormessage/$', DirectorMessageView.as_view(), name='director-message'),
+    url(r'^director-message/$', DirectorMessageView.as_view(), name='director-message'),
     url(r'^syllabus/$', UHVPESyllabus.as_view(), name='syllabus'),
     url(r'^guidelines/$', GuidelineView.as_view(), name='guidelines'),
     url(r'^projects/$', SociallyRelevantProjectView.as_view(), name='projects'),
@@ -11,7 +13,16 @@ urlpatterns = [
     url(r'^faq/$', FAQView.as_view(), name='faq'),
     url(r'^journey/$', JourneySoFarView.as_view(), name='journey'),
     url(r'^impact/$', ImpactView.as_view(), name='impact'),
-    url(r'^futureplans/$', FuturePlansView.as_view(), name='future'),
-    url(r'^nodalcenter/$', NodalCenterView.as_view(), name='nodal-center'),
+    url(r'^future-plans/$', FuturePlansView.as_view(), name='future'),
+    url(r'^nodal-center/$', NodalCenterView.as_view(), name='nodal-center'),
+    url(r'^presentation/$', PresentationView.as_view(), name='presentation'),
+    url(r'^note/$', NoteView.as_view(), name='note'),
+    url(r'^question-paper/$', QuestionPaperView.as_view(), name='question-paper'),
+    url(r'^practice-session/$', PracticeSessionView.as_view(), name='practice-session'),
+    url(r'^posters/$', PosterView.as_view(), name='poster'),
+    url(r'^circulars/$', CircularView.as_view(), name='circular'),
+    url(r'^video-lecture/$', VideoLectureView.as_view(), name='video-lecture'),
+    url(r'^contact/$', ContactView.as_view(), name='contact'),
+    url(r'^register/$', WorkshopRegistrationView.as_view(), name='contact'),
     url(r'^$', IndexView.as_view(), name='home'),
 ]

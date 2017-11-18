@@ -1,11 +1,13 @@
 {% load staticfiles %}
+{% load static %}
 
 <script src="{% static 'js/responsiveslides.min.js' %}"></script>
 <div class="image-slider">
     <ul class="rslides" id="slider1">
-        <li><img src="{%static 'image/1.jpg'%}" alt=""></li>
-        <li><img src="{%static 'image/2.jpg'%}" alt=""></li>
-        <li><img src="{%static 'image/3.jpg'%}" alt=""></li>
+        {% get_media_prefix as media_link %}
+        {% for image in slider_image %}
+        <li><img src="{{media_link}}{{image.image}}" alt=""></li>
+        {% endfor %}
     </ul>
 </div>
 <script>
