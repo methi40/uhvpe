@@ -4,6 +4,23 @@
 
 }
 
+/*center_content*/
+.center_content {
+    width: 80vw;
+    margin: auto;
+    padding: 3vh 1vw 0 1vh;
+    font-size: 1.2em;
+}
+
+.content_heading {
+    font-style: 25px;
+    font-weight: 400;
+}
+
+.rslides li {
+    margin-bottom: 3vh;
+}
+
 .clear {
     clear: both;
     z-index: -100
@@ -40,6 +57,9 @@ ul {
     -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     border-radius: 3px;
+}
+.nav-fostrap .close{
+    display: none;
 }
 
 .nav-fostrap ul {
@@ -149,6 +169,7 @@ footer {
     background-color: #333333;
     padding: 20px 0;
     color: #fff;
+    margin-top: 3vh;
 }
 
 .footer_main {
@@ -226,6 +247,10 @@ footer {
 
 /*mobile responsive*/
 @media only screen and (max-width: 900px) {
+    .center_content {
+        font-size: 1em;
+        width: 90vw;
+    }
     .nav-top {
         position: relative;
         margin: 40px 0 0 0;
@@ -381,6 +406,10 @@ footer {
         left: 0;
         right: 0;
     }
+    .nav-fostrap .close{
+    display: block;
+        padding:1.5vh;
+}
 
     .top_heading {
         /*padding:9vh 2px 1vh 0;*/
@@ -390,10 +419,7 @@ footer {
         font-size: .8em;
     }
 
-    .logo {
-        /*padding: 9vh 0 1vh 6vw;*/
 
-    }
 
     .col-xs-2 {
         padding: 0px !important;
@@ -407,8 +433,79 @@ footer {
         font-size: .7em;
     }
 }
+@media only screen and (max-width:550px) {
+.nav-top
+  {
+    padding:9vh 0 1vh 0;
+  }
 
-@media (min-width: 600px) and (max-width: 900px) {
+
+.col-xs-2
+{
+  padding:0px !important;
+}
+
+.heading_text
+{
+  font-size: .8em;
+}
+}
+@media only screen and (max-width:550px) {
+  .logo
+  {
+    padding:2vh 0 0 1vw ;
+    margin:0px;
+  }
+
+  }
+
+@media (min-width: 550px) and (max-width:700px) {
+  .logo
+  {
+    padding:2vh;
+    margin:0px;
+  }
+
+}
+@media only screen and (max-width:400px) {
+  .heading_text
+  {
+    font-size: .8em;
+  }
+   .heading
+  {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 400px) and (max-width:550px) {
+  .heading_text
+  {
+    font-size: 1em;
+  }
+   .heading
+  {
+    font-size: 1.2em;
+  }
+}
+
+@media (min-width: 550px) and (max-width:700px) {
+.nav-top
+  {
+    padding:9vh 0 1vh 0;
+  }
+}
+
+@media (min-width: 700px) and (max-width:900px) {
+.nav-top
+  {
+    padding:6vh 0 1vh 0;
+  }
+}
+
+
+@media (min-width: 550px) and (max-width:900px) {
+
     .heading {
         font-size: 1.5em;
     }
@@ -416,45 +513,154 @@ footer {
     .heading_text {
         font-size: 1em;
     }
+}
 
-    .logo {
-        padding: 2vh 0 0 0;
+    @media only screen and (max-width: 1199px) {
+        .fixed-top {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+        }
+    }
+
+
+    /* table */
+    .main_table {
+        width: 80%;
+        margin: auto;
+    }
+
+    /*form styles modal*/
+    .form_entries {
+        font-size: 18px;
+    }
+
+    .form_outer {
+
+        width: 90%;
+        margin: auto;
+        margin-bottom: 3vh;
+        margin-top: 1vh;
+    }
+
+    .heading_form {
+        text-align: center;
+        font-size: 1.75em;
+        color: #dfb936;
+        margin-bottom: 2vh;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .form-label {
+        font-size: 12px;
+        color: #5e9bfc;
+        margin: 0;
+        display: block;
+        opacity: 1;
+        -webkit-transition: .333s ease top, .333s ease opacity;
+        transition: .333s ease top, .333s ease opacity;
+    }
+
+    .form-control {
+        border-radius: 0 !important;
+        border-color: #ccc;
+        border-width: 0 0 2px 0 !important;
+        border-style: none none solid none !important;
+        box-shadow: none !important;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #800000;
+    }
+
+    .btn-lg {
+        width: 100% !important;
+    }
+
+    .modal-body button {
+        background-color: #800000 !important;
+        color: #e1dcdc;
+        border: none !important;
+        margin-top: 5vh;
 
     }
 
-    .top_heading {
-        padding: 11vh 2px 1vh 0;
-    }
-}
+    .modal-body button:hover {
+        background-color: #c40000 !important;
+        color: #fff;
+        border: none !important;
+        margin-top: 5vh;
 
-@media only screen and (max-width: 1199px) {
-    .fixed-top {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
     }
 
+    label {
+        font-size: 14px;
+    }
+
+    .modal-title {
+        color: #fff;
+        font-weight: 600;
+
+    }
+
+    .modal-header {
+        background-color: #800000;
+    }
+
+    .unstyled li {
+        margin: 20px 0;
+    }
+
+    .modal .close {
+        color: white;
+        opacity: .5;
+        text-shadow: none;
+    }
+
+    .modal .close:hover {
+        opacity: 1;
+    }
+
+    .modal-content {
+        border-radius: 0px;
+    }
+
+
+.table-responsive{
+    border:none !important;
 }
 
-/*center_content*/
-.center_content {
-    width: 80vw;
-    margin: auto;
-    padding: 25px 2px;
+/*workshop_content*/
+.content_heading
+{
+  font-size: 1.5em;
+  font-weight: 500;
 }
 
-.content_heading {
-    font-style: 25px;
-    font-weight: 400;
+.btn-info
+{
+  background-color:  #800000;
+  color:#e1dcdc;
+  border:none !important;
+  padding: 1vh 3vw 1vh 3vw;
+  margin: 2vh 0;
 }
 
-.rslides li {
-    margin-bottom: 3vh;
+.btn-info:focus, .btn-info:hover
+{
+  background-color: #c40000 !important;
+  color:#fff;
+  border:none !important;
 }
 
-/* table */
-.main_table {
-    width: 80%;
-    margin: auto;
+.workshop
+{
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  padding:0 2vw;
+  margin-top: 3vh;
 }

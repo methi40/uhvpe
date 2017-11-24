@@ -1,7 +1,23 @@
-<div class="center_content">
+<div class="center_content table-responsive">
     {% if page %}
     {{page.content|safe}}
     {% else %}
     <p> No content.</p>
     {% endif %}
 </div>
+<script>
+    function responsiveImage() {
+        $('.center_content img').each(function () {
+            var width = $(this).css("width");
+            var height = $(this).css("height");
+            $(this).removeAttr("style");
+            $(this).attr("width", width);
+            $(this).attr("height", height);
+            $(this).addClass("img-responsive");
+        });
+    }
+
+    function responsiveContent() {
+        responsiveImage();
+    }
+</script>

@@ -14,7 +14,9 @@
 </div>
 <nav>
     <div class="nav-fostrap">
+        <a type="button" class="close">&times;</a>
         <ul>
+
             <li><a href="{%url 'home'%}">Home</a></li>
 
             <li><a href="javascript:void(0)">About UHVPE</a>
@@ -40,9 +42,9 @@
 
             <li><a href="javascript:void(0)">Activities</a>
                 <ul class="dropdown">
-                    <li><a href="">Past Workshop</a></li>
-                    <li><a href="">Events</a></li>
-                    <li><a href="">UHVPE Program</a></li>
+                    <li><a href="{% url 'past-workshop'%}">Past Workshop</a></li>
+                    <li><a href="{% url 'event' %}">Events</a></li>
+                    <li><a href="{% url 'uhvpe-program'%}">UHVPE Program</a></li>
                 </ul>
             </li>
 
@@ -56,7 +58,7 @@
                 </ul>
             </li>
 
-            <li><a href="javascript:void(0)">Upcoming Workshop</a></li>
+            <li><a href="{% url 'workshop' %}">Upcoming Workshop</a></li>
             <li><a href="{%url 'faq'%}">FAQ</a></li>
             <li><a href="{%url 'contact'%}">Contact</a></li>
 
@@ -67,10 +69,24 @@
         <p href="" class="title-mobile">UHVPE</p>
     </div>
 </nav>
-<script > $(document).ready(function(){
-    $('.navbar-fostrap').click(function(){
+<script > $(window).resize(function() {
+    if( $(this).width() > 900 ) {
+      $('.nav-fostrap').removeClass('hide');
+          $('.nav-fostrap').toggleClass('visible');
+    }
+});
+$(document).ready(function(){
+      $('.navbar-fostrap').click(function(){
+      $('.nav-fostrap').removeClass('hide');
       $('.nav-fostrap').toggleClass('visible');
-      $('body').toggleClass('cover-bg');
+
     });
-  });
+
+    $('.close').click(function(){
+    $('.nav-fostrap').removeClass('visible');
+      $('.nav-fostrap').toggleClass('hide');
+
+    });
+
+});
 </script>

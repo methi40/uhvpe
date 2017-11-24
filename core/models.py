@@ -92,3 +92,25 @@ class WorkshopRegistration(models.Model):
 
     class Meta:
         unique_together = ('workshop', 'email')
+
+
+class Event(models.Model):
+    name = models.CharField(max_length=50)
+    description = RichTextUploadingField()
+    active = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+
+class EventRegistration(models.Model):
+    event = models.ForeignKey(Event)
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone = models.BigIntegerField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        unique_together = ('event', 'email')

@@ -2,7 +2,8 @@ from django.conf.urls import url
 from .views import (IndexView, DirectorMessageView, UHVPESyllabus, GuidelineView, SociallyRelevantProjectView,
                     BookView, FAQView, JourneySoFarView, ImpactView, FuturePlansView, NodalCenterView, PresentationView,
                     NoteView, QuestionPaperView, PracticeSessionView, PosterView, CircularView, VideoLectureView,
-                    ContactView, WorkshopRegistrationView)
+                    ContactView, WorkshopRegistrationView, EventRegistrationView, PastWorkshopDetailView,
+                    UHVPEProgramView)
 
 urlpatterns = [
     url(r'^director-message/$', DirectorMessageView.as_view(), name='director-message'),
@@ -23,6 +24,9 @@ urlpatterns = [
     url(r'^circulars/$', CircularView.as_view(), name='circular'),
     url(r'^video-lecture/$', VideoLectureView.as_view(), name='video-lecture'),
     url(r'^contact/$', ContactView.as_view(), name='contact'),
-    url(r'^register/$', WorkshopRegistrationView.as_view(), name='contact'),
+    url(r'^workshop/$', WorkshopRegistrationView.as_view(), name='workshop'),
+    url(r'^event/$', EventRegistrationView.as_view(), name='event'),
+url(r'^past-workshop/$', PastWorkshopDetailView.as_view(), name='past-workshop'),
+url(r'^uhvpe-program/$', UHVPEProgramView.as_view(), name='uhvpe-program'),
     url(r'^$', IndexView.as_view(), name='home'),
 ]

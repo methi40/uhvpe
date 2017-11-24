@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'core',
     'ckeditor',
     'import_export',
+    'captcha',
     'django_cleanup' # Removes the file from server whenever an object with file field is deleted
 ]
 
