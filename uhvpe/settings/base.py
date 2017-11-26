@@ -118,6 +118,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
 
 CKEDITOR_UPLOAD_PATH = 'upload/'
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
