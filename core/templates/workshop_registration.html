@@ -55,8 +55,10 @@
 
     </div>
 </div>
+{% empty %}
+<div class="heading" style="text-align: center;">
+    <h2>No active workshops right now.</h2>
+</div>
 {% endfor %}
-
-
 {% include 'footer.html' %}
 {% endblock %}
