@@ -17,7 +17,11 @@
                 {% for object in object_list %}
                 <tr>
                     <td>{{object.name}}</td>
+                    {% if object.url %}
+                     <td><a href="{{object.url}}">View</a></td>
+                    {% else %}
                     <td><a href="{{media_link}}{{object.file}}">Download</a></td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
                 </tbody>

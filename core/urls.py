@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^contact/$', ContactView.as_view(), name='contact'),
     url(r'^workshop/$', WorkshopRegistrationView.as_view(), name='workshop'),
     url(r'^event/$', EventRegistrationView.as_view(), name='event'),
-url(r'^past-workshop/$', PastWorkshopDetailView.as_view(), name='past-workshop'),
-url(r'^uhvpe-program/$', UHVPEProgramView.as_view(), name='uhvpe-program'),
+    url(r'^past-workshop/$', PastWorkshopDetailView.as_view(), name='past-workshop'),
+    url(r'^uhvpe-program/$', UHVPEProgramView.as_view(), name='uhvpe-program'),
     url(r'^$', IndexView.as_view(), name='home'),
 ]

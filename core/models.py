@@ -80,6 +80,9 @@ class VideoLecture(models.Model):
     name = models.CharField(max_length=50)
     url = models.URLField()
 
+    def __str__(self):
+        return self.name
+
 
 class WorkshopRegistration(models.Model):
     workshop = models.ForeignKey(Workshop)
@@ -104,10 +107,17 @@ class Event(models.Model):
 
 
 class EventRegistration(models.Model):
+    BRANCH_CHOICES = ((None,'----'),
+    ('MCA', 'MCA'), ('MBA', 'MBA'), ('CS', 'CS'), ('IT', 'IT'),
+    ('ECE', 'ECE'), ('EN', 'EN'), ('ME', 'ME'),('EI','EI'),('CE','CE'))
+    YEAR_CHOICES=((0,'----'),(1,'1'),(2,'2'),(3,'3'),(4,'4'))
     event = models.ForeignKey(Event)
     name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.BigIntegerField()
+    student_no = models.CharField(default=None,null=True,max_length=10)
+    branch = models.CharField(choices=BRANCH_CHOICES,default=None,max_length=3,null=True)
+    year=models.IntegerField(choices=YEAR_CHOICES,default=None,null=True)
 
     def __str__(self):
         return self.name
