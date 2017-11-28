@@ -99,7 +99,9 @@ class EventRegistrationForm(ModelForm):
                                                                'placeholder':'Enter Student no.',
                                                                'name': 'student_no',
                                                                'class': 'form-control',
+                                                               'title':'eg. 1510109',
                                                                'id': 'student_no',
+                                                               'pattern':'^[0-9]{7}[dmlDML]?$'
                                                                }
                                                     )
                                                     )

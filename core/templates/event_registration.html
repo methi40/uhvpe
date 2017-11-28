@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% include 'header.html' %}
+<div class="container-height">
 {% include 'slider.html' %}
 <div class="heading center_content" style="text-align: center;">
     <h2>Event Registration</h2>
@@ -60,7 +61,7 @@
     <h2>No active events right now.</h2>
 </div>
 {% endfor %}
-
+</div>
 
 {% include 'footer.html' %}
 {% endblock %}
