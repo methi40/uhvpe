@@ -4,8 +4,11 @@
 
 }
 
+body{
+    font-family: 'Open Sans', sans-serif;
+}
 .container-height {
-
+    /*padding: 5vh 15vw;*/
     min-height: calc(100vh - 196px);
 }
 
@@ -170,17 +173,32 @@ ul {
     display: none;
 }
 
-/*footer*/
-footer {
-    background-color: #333333;
-    padding: 20px 0;
-    color: #fff;
+/* Footer
+---------------------------------*/
+
+/*.footer{*/
+  /*background:url(../image/pw_maze_black_2X.png) left top repeat;*/
+
+/*}*/
+
+.footer_link{
+  color:#cccccc;
+  font-size:14px;
+  display:block;
+  text-align:center;
+  padding:5vh 5vw;
+}
+.footer_link a{
+  color:#0ab6ff;
+  font-weight:600;
+  text-decoration: none;
+  transition:all 0.3s ease-in-out;
+  -moz-transition:all 0.3s ease-in-out;
+  -webkit-transition:all 0.3s ease-in-out;
 }
 
-.footer_main {
-    display: block;
-    text-align: center;
-    margin: auto;
+.footer_link a:hover {
+  color: #fff;
 }
 
 /*header*/
@@ -441,7 +459,7 @@ footer {
 
 @media only screen and (max-width: 550px) {
     .nav-top {
-        padding: 9vh 0 1vh 0;
+        padding: 2vh 0 1vh 0;
     }
 
     .col-xs-2 {

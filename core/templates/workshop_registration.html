@@ -3,6 +3,7 @@
 {% include 'header.html' %}
 <div class="container-height">
 {% include 'slider.html' %}
+
 <div class="heading center_content" style="text-align: center;">
     <h2> Workshop Registration</h2>
 </div>
@@ -56,11 +57,15 @@
 
     </div>
 </div>
+
+
 {% empty %}
 <div class="heading" style="text-align: center;">
     <h2>No active workshops right now.</h2>
 </div>
+
 {% endfor %}
+</div>
 </div>
 {% include 'footer.html' %}
 {% endblock %}
