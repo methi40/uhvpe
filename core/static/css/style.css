@@ -6,6 +6,7 @@
 
 body{
     font-family: 'Raleway', sans-serif;
+    background-color: #ececec;
 }
 .container-height {
     /*padding: 5vh 15vw;*/
@@ -186,7 +187,7 @@ ul {
 
 .footer_link{
   color:#cccccc;
-  font-size:14px;
+  font-size:1.2em;
   display:block;
   text-align:center;
   padding:5vh 5vw;
@@ -234,7 +235,7 @@ ul {
 
 }
 .nav-top
-{
+{   background-color: #ffffff;
   padding-top:2vh;
 }
 
