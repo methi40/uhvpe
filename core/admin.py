@@ -6,14 +6,19 @@ from .models import (Page, Workshop, Presentation, SliderImage, QuestionPaper, N
 
 class WorkshopRegistrationAdmin(ImportExportActionModelAdmin):
     list_display = ('name', 'email', 'phone', 'workshop')
-    search_fields = ('name','email')
+    search_fields = ('name', 'email')
+    list_filter = ('workshop',)
+
 
 class WorkshopAdmin(admin.ModelAdmin):
     list_display = ('name', 'active')
 
+
 class EventRegistrationAdmin(ImportExportActionModelAdmin):
     list_display = ('name', 'email', 'phone', 'event')
-    search_fields = ('name','email')
+    search_fields = ('name', 'email')
+    list_filter = ('event',)
+
 
 class EventAdmin(admin.ModelAdmin):
     list_display = ('name', 'active')
@@ -21,7 +26,7 @@ class EventAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Page)
-admin.site.register(Workshop,WorkshopAdmin)
+admin.site.register(Workshop, WorkshopAdmin)
 admin.site.register(Presentation)
 admin.site.register(SliderImage)
 admin.site.register(QuestionPaper)
@@ -33,4 +38,3 @@ admin.site.register(VideoLecture)
 admin.site.register(WorkshopRegistration, WorkshopRegistrationAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(EventRegistration, EventRegistrationAdmin)
-
