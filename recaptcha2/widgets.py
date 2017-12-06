@@ -2,7 +2,7 @@ from django.conf import settings
 from django.forms.widgets import Widget
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
-
+from uuid import uuid1
 
 class ReCaptchaWidget(Widget):
     def __init__(self, explicit=False, theme=None, type=None, size=None, tabindex=None, callback=None,
@@ -24,7 +24,7 @@ class ReCaptchaWidget(Widget):
 
         return mark_safe(
             render_to_string(template, {
-                'container_id': 'id_%s' % name,
+                'container_id': 'id_%s_%s' % (name,uuid1()),
                 'public_key': self._public_key or settings.RECAPTCHA_PUBLIC_KEY,
                 'theme': self.theme,
                 'type': self.type,

@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 import requests
 
-from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
+from .widgets import ReCaptchaWidget
 
 logger = logging.getLogger(__name__)
 
