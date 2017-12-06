@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'core',
     'ckeditor',
     'import_export',
-    # 'snowpenguin.django.recaptcha2',
     'recaptcha2',
     'django_cleanup', # Removes the file from server whenever an object with file field is deleted
 ]
@@ -122,12 +121,9 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 
-CAPTCHA_LETTER_ROTATION =(-5,5)
-CAPTCHA_LENGTH = 6
-
 CKEDITOR_UPLOAD_PATH = 'upload/'
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_FILENAME_GENERATOR = 'core.utils.get_filename'
 
-RECAPTCHA_PRIVATE_KEY = '6LfPvzsUAAAAAK-12t7LsGE18UvtBW802MoXZ7us'
-RECAPTCHA_PUBLIC_KEY = '6LfPvzsUAAAAAIOrdLqhro9XyFozDp2i9oDBqvkY'
+RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
+RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
