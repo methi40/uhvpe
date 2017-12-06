@@ -86,6 +86,13 @@ class ImpactView(View):
         return render(request, self.template_name, context={'page': page, 'slider_image': slider_image()})
 
 
+class DeveloperView(View):
+    template_name = 'developer.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
 class FuturePlansView(View):
     template_name = 'index.html'
 

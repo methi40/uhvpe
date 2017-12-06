@@ -3,7 +3,7 @@ from .views import (IndexView, DirectorMessageView, UHVPESyllabus, GuidelineView
                     BookView, FAQView, JourneySoFarView, ImpactView, FuturePlansView, NodalCenterView, PresentationView,
                     NoteView, QuestionPaperView, PracticeSessionView, PosterView, CircularView, VideoLectureView,
                     ContactView, WorkshopRegistrationView, EventRegistrationView, PastWorkshopDetailView,
-                    UHVPEProgramView)
+                    UHVPEProgramView, DeveloperView)
 
 urlpatterns = [
     url(r'^director-message/$', DirectorMessageView.as_view(), name='director-message'),
@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^event/$', EventRegistrationView.as_view(), name='event'),
     url(r'^past-workshop/$', PastWorkshopDetailView.as_view(), name='past-workshop'),
     url(r'^uhvpe-program/$', UHVPEProgramView.as_view(), name='uhvpe-program'),
+url(r'^developer/$', DeveloperView.as_view(), name='developer'),
     url(r'^$', IndexView.as_view(), name='home'),
 ]
