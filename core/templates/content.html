@@ -5,20 +5,3 @@
     <p class="heading_text"> No content.</p>
     {% endif %}
 </div>
-<script>
-    function responsiveImage() {
-        $('.center_content img').each(function () {
-            var width = $(this).css("width");
-            var height = $(this).css("height");
-            $(this).removeAttr("style");
-            $(this).attr("width", width);
-            $(this).attr("height", height);
-            $(this).addClass("img-responsive");
-            $(this).css("display","inline-block")
-        });
-    }
-
-    function responsiveContent() {
-        responsiveImage();
-    }
-</script>

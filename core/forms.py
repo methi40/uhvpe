@@ -1,12 +1,11 @@
 from django.forms import ModelForm
 from django import forms
-from snowpenguin.django.recaptcha2.fields import ReCaptchaField
-from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 from .models import WorkshopRegistration, EventRegistration
-
+from recaptcha2.fields import  ReCaptchaField
+from recaptcha2.fields import ReCaptchaWidget
 
 class WorkshopRegistrationForm(ModelForm):
-    captcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=True))
+    captcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=True,callback='enableButton'),label='')
 
     def __init__(self, *args, **kwargs):
         super(WorkshopRegistrationForm, self).__init__(*args, **kwargs)
@@ -56,7 +55,7 @@ class WorkshopRegistrationForm(ModelForm):
 
 
 class EventRegistrationForm(ModelForm):
-    captcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=True))
+    captcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=True, callback='enableButton'), label='')
 
     def __init__(self, *args, **kwargs):
         super(EventRegistrationForm, self).__init__(*args, **kwargs)

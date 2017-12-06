@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
+{% block content %}
 {% load recaptcha2 %}
-{% recaptcha_init %}
-{% block content %}>
+{% recaptcha_explicit_support %}
 {% include 'header.html' %}
 <div class="container-height">
 {% include 'slider.html' %}
@@ -47,7 +47,7 @@
                         {% csrf_token %}
                         {{form.as_p}}
                         <input type="hidden" name="event" value="{{event.id}}">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-block" disabled>Submit</button>
                     </form>
                 </div>
 
@@ -64,6 +64,14 @@
     </div>
 
 {% endfor %}
+{% recaptcha_explicit_init %}
 </div>
 {% include 'footer.html' %}
+<script>
+function enableButton() {
+    $('button').each(function () {
+       $(this).removeAttr('disabled');
+    });
+}
+</script>
 {% endblock %}

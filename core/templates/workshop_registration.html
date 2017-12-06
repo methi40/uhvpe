@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block content %}
 {% load recaptcha2 %}
 {% recaptcha_explicit_support %}
@@ -50,8 +51,9 @@
                             {% csrf_token %}
 
                             {{form.as_p}}
+
                             <input type="hidden" name="workshop" value="{{workshop.id}}">
-                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-block" disabled>Submit</button>
                         </form>
                     </div>
 
@@ -73,4 +75,11 @@
 </div>
 </div>
 {% include 'footer.html' %}
+<script>
+function enableButton() {
+    $('button').each(function () {
+       $(this).removeAttr('disabled');
+    });
+}
+</script>
 {% endblock %}
