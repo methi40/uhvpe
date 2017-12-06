@@ -1,11 +1,12 @@
 from django.forms import ModelForm
 from django import forms
-from captcha.fields import CaptchaField
+from snowpenguin.django.recaptcha2.fields import ReCaptchaField
+from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 from .models import WorkshopRegistration, EventRegistration
 
 
 class WorkshopRegistrationForm(ModelForm):
-    captcha = CaptchaField()
+    captcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=True))
 
     def __init__(self, *args, **kwargs):
         super(WorkshopRegistrationForm, self).__init__(*args, **kwargs)
@@ -55,7 +56,7 @@ class WorkshopRegistrationForm(ModelForm):
 
 
 class EventRegistrationForm(ModelForm):
-    captcha = CaptchaField()
+    captcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=True))
 
     def __init__(self, *args, **kwargs):
         super(EventRegistrationForm, self).__init__(*args, **kwargs)
@@ -96,16 +97,17 @@ class EventRegistrationForm(ModelForm):
                                                     required=False,
                                                     widget=forms.TextInput(
                                                         attrs={'type': 'text',
-                                                               'placeholder':'Enter Student no.',
+                                                               'placeholder': 'Enter Student no.',
                                                                'name': 'student_no',
                                                                'class': 'form-control',
-                                                               'title':'eg. 1510109',
+                                                               'title': 'eg. 1510109',
                                                                'id': 'student_no',
-                                                               'pattern':'^[0-9]{7}[dmlDML]?$'
+                                                               'pattern': '^[0-9]{7}[dmlDML]?$'
                                                                }
                                                     )
                                                     )
-        self.fields['branch'] = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),choices=((None, '----'),
+        self.fields['branch'] = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),
+                                                  choices=((None, '----'),
                                                            ('MCA', 'MCA'), ('MBA', 'MBA'), ('CS', 'CS'), ('IT', 'IT'),
                                                            ('ECE', 'ECE'), ('EN', 'EN'), ('ME', 'ME'), ('EI', 'EI'),
                                                            ('CE', 'CE'),),
@@ -113,7 +115,8 @@ class EventRegistrationForm(ModelForm):
 
                                                   )
 
-        self.fields['year'] = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),choices=((0, '----'), (1, '1'), (2, '2'), (3, '3'), (4, '4')),
+        self.fields['year'] = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),
+                                                choices=((0, '----'), (1, '1'), (2, '2'), (3, '3'), (4, '4')),
                                                 required=False)
 
     def clean(self):

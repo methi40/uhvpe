@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-{% block content %}
+{% load recaptcha2 %}
+{% recaptcha_init %}
+{% block content %}>
 {% include 'header.html' %}
 <div class="container-height">
 {% include 'slider.html' %}

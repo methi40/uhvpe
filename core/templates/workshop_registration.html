@@ -1,70 +1,75 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load recaptcha2 %}
+{% recaptcha_explicit_support %}
 {% include 'header.html' %}
 <div class="container-height">
-{% include 'slider.html' %}
+    {% include 'slider.html' %}
 
-<div class="heading center_content" style="text-align: center;">
-    <h2> Workshop Registration</h2>
-</div>
-
-<div class="container-fluid">
-    <!-- Trigger the modal with a button -->
-    {% for workshop in workshops %}
-    <!--     workshop -->
-
-    <div class="center_content workshop">
-        <div class="content_heading">
-            {{workshop.name}}
-        </div>
-        {{workshop.description|safe}}
-        <div>
-            <button type="button" class="btn btn-info button_style" data-toggle="modal"
-                    data-target="#myModal_{{workshop.id}}">Register Here
-            </button>
-        </div>
+    <div class="heading center_content" style="text-align: center;">
+        <h2> Workshop Registration</h2>
     </div>
 
-</div>
+    <div class="container-fluid">
+        <!-- Trigger the modal with a button -->
 
-<!-- Modal -->
-<div class="modal fade" id="myModal_{{workshop.id}}" role="dialog">
-    <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <a type="button" class="close" data-dismiss="modal">&times;</a>
-                <h4 class="modal-title">Registration Form</h4>
+        {% for workshop in workshops %}
+        <!--     workshop -->
+
+        <div class="center_content workshop">
+            <div class="content_heading">
+                {{workshop.name}}
             </div>
-            <div class="modal-body">
+            {{workshop.description|safe}}
+            <div>
+                <button type="button" class="btn btn-info button_style" data-toggle="modal"
+                        data-target="#myModal_{{workshop.id}}">Register Here
+                </button>
+            </div>
+        </div>
 
-                <div class="form_outer">
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal_{{workshop.id}}" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a type="button" class="close" data-dismiss="modal">&times;</a>
+                    <h4 class="modal-title">Registration Form</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form_outer">
 
 
-                    <form id="contact-form" class="form" action="{% url 'workshop' %}" method="POST" role="form">
-                        {% csrf_token %}
+                        <form id="contact-form" class="form" action="{% url 'workshop' %}" method="POST" role="form">
+                            {% csrf_token %}
 
-                        {{form.as_p}}
-                        <input type="hidden" name="workshop" value="{{workshop.id}}">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                    </form>
+                            {{form.as_p}}
+                            <input type="hidden" name="workshop" value="{{workshop.id}}">
+                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        </form>
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
-
     </div>
-</div>
 
 
-{% empty %}
-<div class="heading" style="text-align: center;">
-    <h2>No active workshops right now.</h2>
-</div>
+    {% empty %}
+    <div class="heading" style="text-align:center;">
+        <h2>No active workshops right now.</h2>
+    </div>
 
-{% endfor %}
+    {% endfor %}
+    {% recaptcha_explicit_init %}
 </div>
 </div>
 {% include 'footer.html' %}

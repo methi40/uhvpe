@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'core',
     'ckeditor',
     'import_export',
-    'captcha',
-    'django_cleanup' # Removes the file from server whenever an object with file field is deleted
+    'snowpenguin.django.recaptcha2',
+    'django_cleanup', # Removes the file from server whenever an object with file field is deleted
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -124,3 +124,6 @@ STATIC_URL = '/static/'
 CKEDITOR_UPLOAD_PATH = 'upload/'
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_FILENAME_GENERATOR = 'core.utils.get_filename'
+
+RECAPTCHA_PRIVATE_KEY = '6LfPvzsUAAAAAK-12t7LsGE18UvtBW802MoXZ7us'
+RECAPTCHA_PUBLIC_KEY = '6LfPvzsUAAAAAIOrdLqhro9XyFozDp2i9oDBqvkY'
