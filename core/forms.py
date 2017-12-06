@@ -39,6 +39,8 @@ class WorkshopRegistrationForm(ModelForm):
                        'name': 'phone',
                        'class': 'form-control',
                        'id': 'phone',
+                       'pattern':'^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$',
+                       'title':'eg. 9454301987',
                        'placeholder': 'Enter Phone No*',
                        'onblur': ''
                        }
@@ -88,6 +90,8 @@ class EventRegistrationForm(ModelForm):
                                                              'name': 'phone',
                                                              'class': 'form-control',
                                                              'id': 'phone',
+                                                             'pattern': '^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$',
+                                                             'title': 'eg. 9454301987',
                                                              'placeholder': 'Enter Phone No*'
                                                              }
                                                   )
