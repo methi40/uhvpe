@@ -17,6 +17,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/top.js' %}"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 
@@ -77,6 +78,7 @@
 {% endif %}
 {% block content %}
 {% endblock %}
+<a href="#0" class="cd-top" style="background: rgba(0, 0, 0, 0.55) url({% static 'image/cd-top-arrow.svg' %}) no-repeat center 50%;">Top</a>
 </body>
 </html>
 
