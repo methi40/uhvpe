@@ -179,10 +179,10 @@ ul {
 /* Footer
 ---------------------------------*/
 
-/*.footer{*/
-  /*background:url(../image/pw_maze_black_2X.png) left top repeat;*/
+footer{
+    margin-top: 6vh;
+}
 
-/*}*/
 
 .footer_link{
   color:#cccccc;
@@ -192,7 +192,7 @@ ul {
   padding:5vh 5vw;
 }
 .footer_link a{
-  color:#0ab6ff;
+  color:#800000;
   font-weight:600;
   text-decoration: none;
   transition:all 0.3s ease-in-out;
@@ -202,6 +202,12 @@ ul {
 
 .footer_link a:hover {
   color: #fff;
+}
+
+@media only screen and (max-width: 700px){
+    .footer_link{
+    font-size:.8em;
+    }
 }
 
 /*header*/
