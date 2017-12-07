@@ -248,7 +248,7 @@ class EventRegistrationView(View):
 
     def post(self, request, *args, **kwargs):
         form = self.form(request.POST)
-        if not Workshop.objects.filter(id=request.POST['event'], active=True).exists():
+        if not Event.objects.filter(id=request.POST['event'], active=True).exists():
             messages.error(request, "The registration for this event is not active.")
         elif EventRegistration.objects.filter(event=request.POST['event'], email=request.POST['email']).exists():
             messages.error(request, "This email is already registered for this event.")
