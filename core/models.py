@@ -72,16 +72,18 @@ class QuestionPaper(models.Model):
         return self.name
 
 
-class SliderImage(models.Model):
+class Image(models.Model):
+    name = models.ForeignKey(Page)
     image = models.ImageField(upload_to='slider_image/', unique=True)
 
 
-class VideoLecture(models.Model):
-    name = models.CharField(max_length=50)
+class Video(models.Model):
+    name = models.ForeignKey(Page)
     url = models.URLField()
+    image = models.ImageField(upload_to='upload/', unique=True)
 
     def __str__(self):
-        return self.name
+        return self.name.page_name
 
 
 class WorkshopRegistration(models.Model):

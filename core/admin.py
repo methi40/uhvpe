@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportActionModelAdmin
-from .models import (Page, Workshop, Presentation, SliderImage, QuestionPaper, Note, PracticeSession,
-                     Circular, Poster, VideoLecture, WorkshopRegistration, Event, EventRegistration)
+from .models import (Page, Workshop, Presentation, Image, QuestionPaper, Note, PracticeSession,
+                     Circular, Poster, Video, WorkshopRegistration, Event, EventRegistration)
 
 
 class WorkshopRegistrationAdmin(ImportExportActionModelAdmin):
@@ -28,13 +28,13 @@ class EventAdmin(admin.ModelAdmin):
 admin.site.register(Page)
 admin.site.register(Workshop, WorkshopAdmin)
 admin.site.register(Presentation)
-admin.site.register(SliderImage)
+admin.site.register(Image)
 admin.site.register(QuestionPaper)
 admin.site.register(Note)
 admin.site.register(PracticeSession)
 admin.site.register(Circular)
 admin.site.register(Poster)
-admin.site.register(VideoLecture)
+admin.site.register(Video)
 admin.site.register(WorkshopRegistration, WorkshopRegistrationAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(EventRegistration, EventRegistrationAdmin)

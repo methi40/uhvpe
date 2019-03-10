@@ -1,5 +1,6 @@
 from django.conf.urls import url
-from .views import (IndexView, DirectorMessageView, UHVPESyllabus, GuidelineView, SociallyRelevantProjectView,
+from .views import (IndexView, DirectorMessageView, VisionAndMissionView, EstablishmentView, StructureView, SyllabusView,
+                    UHVPESyllabus, GuidelineView, SociallyRelevantProjectView,
                     BookView, FAQView, JourneySoFarView, ImpactView, FuturePlansView, NodalCenterView, PresentationView,
                     NoteView, QuestionPaperView, PracticeSessionView, PosterView, CircularView, VideoLectureView,
                     ContactView, WorkshopRegistrationView, EventRegistrationView, PastWorkshopDetailView,
@@ -7,6 +8,11 @@ from .views import (IndexView, DirectorMessageView, UHVPESyllabus, GuidelineView
 
 urlpatterns = [
     url(r'^director-message/$', DirectorMessageView.as_view(), name='director-message'),
+    url(r'^vision-and-mission/$', VisionAndMissionView.as_view(), name='vision-and-mission'),
+    url(r'^establishment/$', EstablishmentView.as_view(), name='establishment'),
+    url(r'^structure/$', StructureView.as_view(), name='structure'),
+    url(r'^syllabus/$', SyllabusView.as_view(), name='syllabus'),
+
     url(r'^syllabus/$', UHVPESyllabus.as_view(), name='syllabus'),
     url(r'^guidelines/$', GuidelineView.as_view(), name='guidelines'),
     url(r'^projects/$', SociallyRelevantProjectView.as_view(), name='projects'),

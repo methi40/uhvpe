@@ -1,98 +1,60 @@
-{% load staticfiles %}
-<div class="nav-top">
-    <div class="row">
-        <div class="col-xs-2 col-sm-3 col-md-4">
-            <img src="{% static 'image/logo.png' %}" class="img-responsive logo" alt="">
-        </div>
-        <div class=" col-xs-10 col-sm-9 col-md-8">
-            <div class="top_heading">
-                <span class="heading">  Universal Human Values & Professional Ethics </span>
-                <div class="heading_text"> Specially Designed To Support VE Cell @ AKGEC, Ghaziabad</div>
+<!--navbar starts-->
+<nav class=" row navbar navbar-expand-lg navbar-light  fixed-top ">
+    <div class="col-12 ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars" style="font-size:24px;color:#fff;"></i>
+        </button>
+        <a class="navbar-brand active home" href="{%url 'home'%}"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+        <div class=" collapse navbar-collapse " id="navbarTogglerDemo03">
+            
+            <div class=" nav-options ">
+                
+                <ul class=" navbar-nav mt-4  mt-lg-0 ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >VE Cell</span></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Vision and Mission</a>
+                            <a class="dropdown-item" href="{%url 'director-message'%}">Director Message</a>
+                            <a class="dropdown-item" href="{%url 'establishment'%}">Establishment</a>
+                            <a class="dropdown-item" href="{%url 'structure'%}">Structure of VE Cell</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Resources</span></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{%url 'syllabus'%}">Syllabus</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">About Book and Authors</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Unit-wise Notes</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Topic-wise Video Lectures</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Unit-wise PPTs</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">University Question Papers</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Previous ST,PUT,UT Papers</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Activities</span></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">FDPs</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Student's Workshops</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Coming Workshops</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Events</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Clubs</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Impacts</span></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Impacts on Students</a>
+                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Impacts on Faculty members</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contactUs"><span>Contact Us</span></a>
+                    </li>
+                </ul>
             </div>
+            
         </div>
-    </div>
-</div>
-<nav>
-    <div class="nav-fostrap">
-        <a type="button" class="close">&times;</a>
-        <ul>
-
-            <li><a href="{%url 'home'%}">Home</a></li>
-
-            <li><a href="javascript:void(0)">About UHVPE</a>
-                <ul class="dropdown">
-                    <li><a href="{%url 'director-message'%}">Director Message</a></li>
-                    <li><a href="{%url 'syllabus'%}">UHVPE Syllabus</a></li>
-                    <li><a href="{%url 'guidelines'%}">UHVPE Guidelines</a></li>
-                </ul>
-            </li>
-
-            <li><a>Resources</a>
-                <ul class="dropdown">
-                    <li><a href="{%url 'presentation' %}">Presentation</a></li>
-                    <li><a href="{%url 'video-lecture' %}">Video Lectures</a></li>
-                    <li><a href="{%url 'practice-session' %}">Practice Sessions</a></li>
-                    <li><a href="{%url 'poster' %}">Posters</a></li>
-                    <li><a href="{%url 'projects'%}">Socially Relevant Projects </a></li>
-                    <li><a href="{%url 'books'%}">Books</a></li>
-                    <li><a href="{%url 'note' %}">Notes</a></li>
-                    <li><a href="{%url 'question-paper' %}">Question Papers</a></li>
-                </ul>
-            </li>
-
-            <li><a href="javascript:void(0)">Activities</a>
-                <ul class="dropdown">
-                    <li><a href="{% url 'past-workshop'%}">Past Workshop</a></li>
-                    <li><a href="{% url 'event' %}">Events</a></li>
-                    <li><a href="{% url 'uhvpe-program'%}">UHVPE Program</a></li>
-                </ul>
-            </li>
-
-            <li><a href="javascript:void(0)">UHVPE @ AKGEC</a>
-                <ul class="dropdown">
-                    <li><a href="{%url 'journey'%}">Journey So Far</a></li>
-                    <li><a href="{%url 'impact'%}">Impact</a></li>
-                    <li><a href="{%url 'future'%}">Future Plans</a></li>
-                    <li><a href="{%url 'circular' %}">Past Circulars</a></li>
-                    <li><a href="{%url 'nodal-center'%}">Nodal Centers</a></li>
-                </ul>
-            </li>
-
-            <li><a href="{% url 'workshop' %}">Upcoming Workshop</a></li>
-
-            <li><a href="javascript:void(0)">Contact</a>
-                <ul class="dropdown">
-                    <li><a href="{%url 'contact'%}">UHVPE Cell</a></li>
-                   <li><a href="{%url 'developer'%}">Developer</a></li>
-
-
-                </ul>
-            </li>
-            <li><a href="{%url 'faq'%}">FAQ</a></li>
-    </div>
-    <div class="nav-bg-fostrap">
-        <div class="navbar-fostrap"><span></span><span></span><span></span></div>
-        <p href="" class="title-mobile">UHVPE</p>
     </div>
 </nav>
-<script> $(window).resize(function () {
-    if ($(this).width() > 900) {
-        $('.nav-fostrap').removeClass('hide');
-        $('.nav-fostrap').toggleClass('visible');
-    }
-});
-$(document).ready(function () {
-    $('.navbar-fostrap').click(function () {
-        $('.nav-fostrap').removeClass('hide');
-        $('.nav-fostrap').toggleClass('visible');
-
-    });
-
-    $('.nav-fostrap .close').click(function () {
-        $('.nav-fostrap').removeClass('visible');
-        $('.nav-fostrap').toggleClass('hide');
-
-    });
-
-});
-</script>
+<!--navbar ends-->
