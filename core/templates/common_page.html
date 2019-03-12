@@ -17,18 +17,58 @@
     <!--navbar page-->
     {% include 'header.html' %}
     {{ display_name|safe }}
-    <div class="center_content table-responsive">
-        {% if page %}
-        {{page.content|safe}}
-        {% else %}
+    <div class="col-lg-10 col-md-10 col-sm-12 mx-auto center_content" style="min-height:375px">
+    {% if page or images or files %}
+        
+            {% if images %}
+                {% for image in images %}
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12 img-column">
+                            <img src="{{media_link}}{{image.image.url}}" class="img-fluid " alt="image" >
+                    </div>
+                </div>
+                   
+                {% endfor %}
+            {% endif %}
+
+            {% if page %}
+                <div class="row">
+                    <div class="col-12">
+                        <p>{{page.content|safe}}</p>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if videos %}
+                {% get_media_prefix as media_link %}
+                {% for object in videos %}
+                    <div class="row">
+                        <div class="col-4 mx-auto">
+                            <a class="embed-responsive-item" href="{{ object.url }}" target="_blank"><img class="embed-responsive-item" src="{{media_link}}{{object.image}}" class="d-block w-100" alt="video"></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% if files %}
+                {% for file in files %}
+                <div class="row">
+                    <div class="col mx-auto shadow " style="margin-bottom:50px;padding: 10px;background-color: rgb(5, 5, 5);">
+                        <embed src="{{ file.file.url }}" type="application/pdf" width="100%" height="600px;" >
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% else %}
         <p class="heading_text"> No content.</p>
-        {% endif %}
     </div>
     
+    {% endif %}
+
     <!-- footer page -->
     {% include 'footer.html' %}
-    
-</div>
+
+
 <!--jqery, bootstrap - plugons-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

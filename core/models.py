@@ -3,9 +3,14 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 # Create your models here.
+
+choices = (('Left', 'Left'),
+           ('Right', 'Right'),
+           ('None', 'None'))
+
 class Page(models.Model):
     page_name = models.CharField(max_length=50)
-    content = RichTextUploadingField()
+    content = RichTextUploadingField(blank=True)
 
     def __str__(self):
         return self.page_name
@@ -13,7 +18,7 @@ class Page(models.Model):
 
 class Workshop(models.Model):
     name = models.CharField(max_length=50)
-    description = RichTextUploadingField()
+    description = RichTextUploadingField(blank=True)
     active = models.BooleanField(default=False)
 
     def __str__(self):
@@ -56,12 +61,13 @@ class Poster(models.Model):
         return self.name
 
 
-class Note(models.Model):
+class Files(models.Model):
+    page = models.ForeignKey(Page)
     name = models.CharField(max_length=50, unique=True)
     file = models.FileField(upload_to='note/', unique=True)
 
     def __str__(self):
-        return self.name
+        return self.page.page_name + "-" + self.name
 
 
 class QuestionPaper(models.Model):
@@ -73,17 +79,22 @@ class QuestionPaper(models.Model):
 
 
 class Image(models.Model):
-    name = models.ForeignKey(Page)
+    page = models.ForeignKey(Page)
+    name = models.CharField(max_length=50, unique=True)
+    number = models.CharField(max_length=25, default='')
     image = models.ImageField(upload_to='slider_image/', unique=True)
+
+    def __str__(self):
+        return self.page.page_name + "-" + self.name 
 
 
 class Video(models.Model):
-    name = models.ForeignKey(Page)
+    page = models.ForeignKey(Page)
     url = models.URLField()
-    image = models.ImageField(upload_to='upload/', unique=True)
+    name = models.CharField(max_length=50, choices=choices, blank=False)
 
     def __str__(self):
-        return self.name.page_name
+        return self.page.page_name + "-" + self.name + "-" + self.url
 
 
 class WorkshopRegistration(models.Model):
@@ -101,7 +112,7 @@ class WorkshopRegistration(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=50)
-    description = RichTextUploadingField()
+    description = RichTextUploadingField(blank=True)
     active = models.BooleanField(default=False)
 
     def __str__(self):

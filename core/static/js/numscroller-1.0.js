@@ -1,11 +1,3 @@
-/**
-* jQuery scroroller Plugin 1.0
-*
-* http://www.tinywall.net/
-* 
-* Developers: Arun David, Boobalan
-* Copyright (c) 2014 
-*/
 (function($){
     $(window).on("load",function(){
         $(document).scrollzipInit();
@@ -70,13 +62,10 @@
             var increment=$('.roller-title-number-'+slno).attr('data-increment');
             var numdiff=max-min;
             var timeout=(timediff*1000)/numdiff;
-            //if(numinc<10){
-                //increment=Math.floor((timediff*1000)/10);
-            //}//alert(increment);
             numberRoll(slno,min,max,increment,timeout);
             
     }
-    function numberRoll(slno,min,max,increment,timeout){//alert(slno+"="+min+"="+max+"="+increment+"="+timeout);
+    function numberRoll(slno,min,max,increment,timeout){
         if(min<=max){
             $('.roller-title-number-'+slno).html(min);
             min=parseInt(min)+parseInt(increment);

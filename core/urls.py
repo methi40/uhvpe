@@ -1,13 +1,9 @@
 from django.conf.urls import url
 from .views import (IndexView, DirectorMessageView, VisionAndMissionView, EstablishmentView, StructureView, SyllabusView,
-                    UHVPESyllabus, BookAndAuthorsView, UnitWiseNotesView, VideoLecturesView, UnitWisePPTView, UTQuestionPaperView, 
+                    SyllabusView, BookAndAuthorsView, UnitWiseNotesView, VideoLecturesView, UnitWisePPTView, UTQuestionPaperView, 
                     PreviousPaperView, FDPView, StudentsWorkshopView, UpcomingWorkshopView, EventsView, ClubsView,
-                    ImapactStudentView, 
-                    GuidelineView, SociallyRelevantProjectView,
-                    BookView, FAQView, JourneySoFarView, ImpactView, FuturePlansView, NodalCenterView, PresentationView,
-                    NoteView, QuestionPaperView, PracticeSessionView, PosterView, CircularView, VideoLectureView,
-                    ContactView, WorkshopRegistrationView, EventRegistrationView, PastWorkshopDetailView,
-                    UHVPEProgramView, DeveloperView)
+                    ImapactStudentView, ImapactFacultyView, SaveContactView)
+                    
 
 urlpatterns = [
     url(r'^director-message/$', DirectorMessageView.as_view(), name='director-message'),
@@ -24,35 +20,10 @@ urlpatterns = [
     url(r'^fdps/$', FDPView.as_view(), name='fdps'),
     url(r'^students-workshop/$', StudentsWorkshopView.as_view(), name='students-workshop'),
     url(r'^upcoming-workshop/$', UpcomingWorkshopView.as_view(), name='upcoming-workshop'),
-    url(r'events^/$', EventsView.as_view(), name='events'),
-    url(r'clubs^/$', ClubsView.as_view(), name='clubs'),
-    url(r'imapact-student^/$', ImapactStudentView.as_view(), name='imapact-student'),
-    url(r'^/$', BookAndAuthorsView.as_view(), name=''),
-    url(r'^/$', BookAndAuthorsView.as_view(), name=''),
-    url(r'^/$', BookAndAuthorsView.as_view(), name=''),
-
-
-    url(r'^syllabus/$', UHVPESyllabus.as_view(), name='syllabus'),
-    url(r'^guidelines/$', GuidelineView.as_view(), name='guidelines'),
-    url(r'^projects/$', SociallyRelevantProjectView.as_view(), name='projects'),
-    url(r'^books/$', BookView.as_view(), name='books'),
-    url(r'^faq/$', FAQView.as_view(), name='faq'),
-    url(r'^journey/$', JourneySoFarView.as_view(), name='journey'),
-    url(r'^impact/$', ImpactView.as_view(), name='impact'),
-    url(r'^future-plans/$', FuturePlansView.as_view(), name='future'),
-    url(r'^nodal-center/$', NodalCenterView.as_view(), name='nodal-center'),
-    url(r'^presentation/$', PresentationView.as_view(), name='presentation'),
-    url(r'^note/$', NoteView.as_view(), name='note'),
-    url(r'^question-paper/$', QuestionPaperView.as_view(), name='question-paper'),
-    url(r'^practice-session/$', PracticeSessionView.as_view(), name='practice-session'),
-    url(r'^posters/$', PosterView.as_view(), name='poster'),
-    url(r'^circulars/$', CircularView.as_view(), name='circular'),
-    url(r'^video-lecture/$', VideoLectureView.as_view(), name='video-lecture'),
-    url(r'^contact/$', ContactView.as_view(), name='contact'),
-    url(r'^workshop/$', WorkshopRegistrationView.as_view(), name='workshop'),
-    url(r'^event/$', EventRegistrationView.as_view(), name='event'),
-    url(r'^past-workshop/$', PastWorkshopDetailView.as_view(), name='past-workshop'),
-    url(r'^uhvpe-program/$', UHVPEProgramView.as_view(), name='uhvpe-program'),
-    url(r'^developer/$', DeveloperView.as_view(), name='developer'),
+    url(r'^events/$', EventsView.as_view(), name='events'),
+    url(r'^clubs/$', ClubsView.as_view(), name='clubs'),
+    url(r'^imapact-student/$', ImapactStudentView.as_view(), name='imapact-student'),
+    url(r'^imapact-faculty/$', ImapactFacultyView.as_view(), name='imapact-faculty'),
+    url(r'^savecontact$', SaveContactView.as_view(), name='save_contact'),
     url(r'^$', IndexView.as_view(), name='home'),
 ]

@@ -22,7 +22,8 @@ body{
 }
 /* side-nav */
 .vertical-nav-row{
-  width: 100vw;
+  width: 10vw;
+  margin-left: 90vw;
   z-index: 1000;
 }
 .vertical-nav{
@@ -61,14 +62,54 @@ nav{
   font-weight: 600;
 }
 .main-title{
-  font-size: 45px;
+  font-size: 24px;
   font-weight: bold;
   color: #ffffff;
-  padding:20px 50px 20px 50px;
+  padding:15px 30px 15px 30px;
   text-shadow: 2px 2px 3px #000;
+  background: rgba(0, 0, 0, .6);
+  border-radius: 10px;
+  animation-name: bg;
+  animation-duration: 5s;
+}
+
+@keyframes bg{
+  0%{
+    background: none;
+    font-size: 45px;
+    font-weight: bold;
+    color: #ffffff;
+    padding:20px 50px 20px 50px;
+  }
+  90%{
+    background: none;
+    font-size: 45px;
+    font-weight: bold;
+    color: #ffffff;
+    padding:20px 50px 20px 50px;
+  }
+  100%{
+    background: rgba(0, 0, 0, .6); 
+  }
+}
+.landing-image{
+  animation-name: blur-image;
+  animation-duration: 5s;
+}
+@keyframes blur-image{
+  0%{
+    filter: blur(5px);
+  }
+  90%{
+    filter: blur(5px);
+  }
+  100%{
+    filter: none;
+  }
 }
 .main-title u{
   color:#ffc107;
+  margin-right: 40px;
 }
 .main-title-h3 {
   padding-left: 50px;
@@ -78,6 +119,39 @@ nav{
   color: #ffc107;
   font-size: 18px !important;
 }
+/*form*/
+.contact-email-box{
+  background-color: #fff;
+  border-top-right-radius: 50px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.email-contact-us {
+  width: 200px;
+}
+.contact-email-box .row{
+  margin: 40px 0px 0px 0px;
+}
+.contact-email-box .c-footer{
+  background-color: #03a9f4;
+  color: #fff;
+  padding: 10px;
+}
+.contact-email-box .c-footer .submit-form{
+  color: #fff;
+  font-size: 24px;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+.contact-email-box input{
+  border-radius: none !important;
+  border: none !important;
+  border-bottom: solid 1px #212121 !important;
+}
+.contact-email-box input:hover{
+  border-bottom: solid 1px #03a9f4 !important;
+  transition: .3s;
+}
+/*form*/
 /* landing-page */
 .landing-page{
   height: 100vh;
@@ -149,13 +223,13 @@ nav{
   font-size: 56px !important;
 }
 .workshops h1 {
-  background-image: url("../images/bg-2.jpg");
+  /* background-image: url("{% static 'image/bg-4.jpg' %}"); */
 }
 .student-members h1{
-  background-image: url("../images/bg-3.jpg");
+  /* background-image: url("{% static 'image/bg-2.jpg' %}"); */
 }
 .teacher-members h1{
-  background-image: url("../images/bg-4.jpg");
+  /* background-image: url("{% static 'image/bg-3.jpg' %}"); */
 }
 /* about-section */
 
@@ -195,6 +269,74 @@ nav{
   padding: 20px;
 }
 /* footer */
+/* common page */
+  .img-column img{
+    border-radius: 10px;
+  }
+  .center_content{
+    margin-top: 150px;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  .center_content p{
+    font-size: 12pt;
+    line-height: 29pt;
+  }
+  .vision-box{
+    width: 120px;
+    height: 40px;
+    background-color: rgba(3, 169, 244,1);
+    position: absolute;
+    z-index: 0;
+    margin-left: 165px;
+    margin-top: 50px;
+  }
+  .director-box{
+    width: 130px;
+    height: 40px;
+    background-color: rgba(3, 169, 244,1);
+    position: absolute;
+    z-index: 0;
+    margin-left: 170px;
+    margin-top: 50px;
+  }
+  .establishment-box{
+    width: 80px;
+    height: 40px;
+    background-color: rgba(3, 169, 244,1);
+    position: absolute;
+    z-index: 0;
+    margin-left: 175px;
+    margin-top: 50px;
+  }
+  .structure-box{
+    width: 60px;
+    height: 40px;
+    background-color: rgba(3, 169, 244,1);
+    position: absolute;
+    z-index: 0;
+    margin-left: 130px;
+    margin-top: 50px;
+  }
+  .syllabus-box{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(3, 169, 244,1);
+    position: absolute;
+    z-index: 0;
+    margin-left: 130px;
+    margin-top: 50px;
+  }
+  .book-box{
+    width: 120px;
+    height: 40px;
+    background-color: rgba(3, 169, 244,1);
+    position: absolute;
+    z-index: 0;
+    margin-left: 190px;
+    margin-top: 50px;
+  }
+/* common_page */
 @media (max-width:480px){
 
   .nav-link span{
@@ -235,6 +377,7 @@ nav{
   }
   .main-title u{
     color: #ffc107;
+    margin-right: 10px;
   }
   /* about */
   .slider-faculty{
@@ -263,5 +406,16 @@ nav{
     margin: 0px 0px 20px 0px;
   }
     /* about */
-
+    /* common page */
+    .center_content p{
+      font-size: 10pt;
+      line-height: 18pt;
+    }
+    
+    /* common page */
+    /* form */
+    .contact-us-img-col{
+      margin-top: 80px;
+    }
+    /* form */
 }
