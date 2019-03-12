@@ -62,6 +62,38 @@ class SyllabusView(View):
         page = Page.objects.filter(page_name='Syllabus').first()
         return render(request, self.template_name, context={'page': page, 'display_name': display_name})
 
+class BookAndAuthorsView(View):
+    template_name = 'common_page.html'
+
+    def get(self, request, *args, **kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h1 class=' my-2'><span class='about-us'>About-Us</span><span class='box'></span> </h1></div>"
+        page = Page.objects.filter(page_name='Book And Authors').first()
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name})
+    
+class UnitWiseNotesView(View):
+    template_name = 'common_page.html'
+
+    def get(self, request, *args, **kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h1 class=' my-2'><span class='about-us'>About-Us</span><span class='box'></span> </h1></div>"
+        page = Page.objects.filter(page_name='Unit Wise Notes').first()
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name})
+    
+class VideoLecturesView(View):
+    template_name = 'common_page.html'
+
+    def get(self, request, *args, **kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h1 class=' my-2'><span class='about-us'>About-Us</span><span class='box'></span> </h1></div>"
+        page = Page.objects.filter(page_name='Video Lectures').first()
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name})
+
+class UnitWisePPTView(View):
+    template_name = 'common_page.html'
+
+    def get(self, request, *args, **kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h1 class=' my-2'><span class='about-us'>About-Us</span><span class='box'></span> </h1></div>"
+        page = Page.objects.filter(page_name='Unit Wise PPT').first()
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name})
+
 
 
 
