@@ -2,7 +2,7 @@ from django.conf.urls import url
 from .views import (IndexView, DirectorMessageView, VisionAndMissionView, EstablishmentView, StructureView, SyllabusView,
                     SyllabusView, BookAndAuthorsView, UnitWiseNotesView, VideoLecturesView, UnitWisePPTView, UTQuestionPaperView, 
                     PreviousPaperView, FDPView, StudentsWorkshopView, UpcomingWorkshopView, EventsView, ClubsView,
-                    ImapactStudentView, ImapactFacultyView, SaveContactView)
+                    ImpactStudentView, ImpactFacultyView, SaveContactView)
                     
 
 urlpatterns = [
@@ -22,8 +22,8 @@ urlpatterns = [
     url(r'^upcoming-workshop/$', UpcomingWorkshopView.as_view(), name='upcoming-workshop'),
     url(r'^events/$', EventsView.as_view(), name='events'),
     url(r'^clubs/$', ClubsView.as_view(), name='clubs'),
-    url(r'^imapact-student/$', ImapactStudentView.as_view(), name='imapact-student'),
-    url(r'^imapact-faculty/$', ImapactFacultyView.as_view(), name='imapact-faculty'),
+    url(r'^impact-student/$', ImpactStudentView.as_view(), name='impact-student'),
+    url(r'^impact-faculty/$', ImpactFacultyView.as_view(), name='impact-faculty'),
     url(r'^savecontact$', SaveContactView.as_view(), name='save_contact'),
     url(r'^$', IndexView.as_view(), name='home'),
 ]

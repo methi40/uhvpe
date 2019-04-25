@@ -12,74 +12,115 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poiret+One" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        
+        google.charts.load('current', {'packages':['corechart']});
+        
+        google.charts.setOnLoadCallback(drawChart);
+        
+        function drawChart() {
+            {% for text, value in charts.items %}
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'People');
+                data.addColumn('number', 'number');
+                data.addRows({{value|safe}});
+
+                var options = {};
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div{{forloop.counter}}'));
+                chart.draw(data, options);
+            {% endfor %}
+        }
+    </script>
+    
 </head>
 <body>
     <!--navbar page-->
-    {% include 'header.html' %}
-    {{ display_name|safe }}
-    <div class="col-lg-10 col-md-10 col-sm-12 mx-auto center_content" style="min-height:375px">
-    {% if page or images or files %}
-        
+    <div class="container-fluid">
+        {% include 'header.html' %}
+        {{ display_name|safe }}
+        <div class="col-lg-10 col-md-10 col-sm-12 mx-auto center_content" style="min-height:375px">
+            
+            {% if page or images or files %}
+            
             {% if images %}
+            <div class="row">
                 {% for image in images %}
-                <div class="row">
-                    <div class="col-lg-4 col-sm-12 img-column">
-                            <img src="{{media_link}}{{image.image.url}}" class="img-fluid " alt="image" >
-                    </div>
+                
+                <div class="col-lg-4 col-sm-12 img-column">
+                    <img src="{{media_link}}{{image.image.url}}" class="img-fluid " alt="image" >
                 </div>
-                   
+                
                 {% endfor %}
+            </div>
             {% endif %}
-
+            
+            
             {% if page %}
-                <div class="row">
-                    <div class="col-12">
-                        <p>{{page.content|safe}}</p>
-                    </div>
+            <div class="row">
+                <div class="col-12">
+                    <p>{{page.content|safe}}</p>
                 </div>
+            </div>
             {% endif %}
-
+            
+            
             {% if videos %}
+            <div class="row">
                 {% get_media_prefix as media_link %}
                 {% for object in videos %}
-                    <div class="row">
-                        <div class="col-4 mx-auto">
-                            <a class="embed-responsive-item" href="{{ object.url }}" target="_blank"><img class="embed-responsive-item" src="{{media_link}}{{object.image}}" class="d-block w-100" alt="video"></a>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
-            {% if files %}
-                {% for file in files %}
-                <div class="row">
-                    <div class="col mx-auto shadow " style="margin-bottom:50px;padding: 10px;background-color: rgb(5, 5, 5);">
-                        <embed src="{{ file.file.url }}" type="application/pdf" width="100%" height="600px;" >
-                    </div>
+                <div class="col-4 mx-auto">
+                    <a class="embed-responsive-item" href="{{ object.url }}" target="_blank"><img class="embed-responsive-item" src="{{media_link}}{{object.image}}" class="d-block w-100" alt="video"></a>
                 </div>
                 {% endfor %}
+            </div>
             {% endif %}
+            
+            {% if files %}
+            <div class="row">
+                {% for file in files %}
+                <div class="col-6 " style="margin-bottom:50px; margin-top:50px ;color: rgb(0, 0, 0);">
+                    <span class="pdf-title">{{file.name}}</span>
+                    <embed class="shadow pdf" src="{{ file.file.url }}" type="application/pdf" width="100%" height="600px;" style="margin:2px 5px 2px 5px !important" >
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if charts %}
+                {% for text, value in charts.items%}
+                <div class="col-lg-10 col-md-10 col-sm-12 mx-auto shadow" style="margin:50px 0px 50px 0px">
+                    <div class="row" style="padding:20px 0 20px 0;font-weight: 700">
+                        <div class="col-12">{{text}}</div> 
+                        <div class="col-12" id="chart_div{{forloop.counter}}" style="padding:px ;min-height:400px; width: inherit " ></div>
+                    </div>
+                    
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                {% else %}
+                <p class="heading_text"> No content.</p>
+                {% endif %}
+            </div>
         </div>
-    {% else %}
-        <p class="heading_text"> No content.</p>
-    </div>
+        <!-- footer page -->
+        {% include 'footer.html' %}
+        
+        
+        <!--jqery, bootstrap - plugons-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        
+        <!--jquery NumScroller -->
+        <script src="{%static 'js/numscroller-1.0.js' %}"></script><!--numscroller should be placed after jquery plugins-->
+        <script type="text/javascript" src="{%static 'js/scrollColor.js' %}"> </script>
+        <script src="{%static 'js/wow.min.js' %}"></script>
+        <script>
+            new WOW().init();
+        </script>
+    </body>
+    </html>
     
-    {% endif %}
-
-    <!-- footer page -->
-    {% include 'footer.html' %}
-
-
-<!--jqery, bootstrap - plugons-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-<!--jquery NumScroller -->
-<script src="{%static 'js/numscroller-1.0.js' %}"></script><!--numscroller should be placed after jquery plugins-->
-<script type="text/javascript" src="{%static 'js/scrollColor.js' %}"> </script>
-<script src="{%static 'js/wow.min.js' %}"></script>
-<script>
-    new WOW().init();
-</script>
-</body>
-</html>

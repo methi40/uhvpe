@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.core.exceptions import ValidationError
 
 
 # Create your models here.
@@ -85,8 +86,27 @@ class Image(models.Model):
     image = models.ImageField(upload_to='slider_image/', unique=True)
 
     def __str__(self):
-        return self.page.page_name + "-" + self.name 
+        return self.page.page_name + "-" + self.name
 
+class Charts(models.Model):
+    page = models.ForeignKey(Page)
+    text = models.CharField(max_length=500, unique=True)
+    number_of_values = models.BigIntegerField()
+    values = models.CharField(max_length=500, blank=False)
+
+    def __str__(self):
+        return self.page.page_name + " - " + self.text
+
+    def clean(self, *args, **kwargs):
+        number = self.values.split(',')
+        if((len(number)/2) == int(self.number_of_values)):
+            super(Charts, self).clean(*args, **kwargs)
+        else:
+            raise ValidationError(u'Number of values provided incorrectly in field!')
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super(Charts, self).save(*args, **kwargs)
 
 class Video(models.Model):
     page = models.ForeignKey(Page)

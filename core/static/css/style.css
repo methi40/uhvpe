@@ -259,7 +259,7 @@ nav{
   margin-top: 50px;
 }
 .contact-us-img{
- margin:20px 0px 20px 0px;
+ margin: 150px 0px 20px 0px ;
 }
 /* /contact-us */
 /* footer */
@@ -275,67 +275,20 @@ nav{
   }
   .center_content{
     margin-top: 150px;
-    text-align: justify;
     text-justify: inter-word;
+    text-align: center;
   }
   .center_content p{
     font-size: 12pt;
     line-height: 29pt;
   }
-  .vision-box{
-    width: 120px;
-    height: 40px;
-    background-color: rgba(3, 169, 244,1);
-    position: absolute;
-    z-index: 0;
-    margin-left: 165px;
-    margin-top: 50px;
+  .pdf-title{
+    font-size: 18px;
+    font-weight: 700;
+    pad: 10px;
+    text-decoration: underline;
   }
-  .director-box{
-    width: 130px;
-    height: 40px;
-    background-color: rgba(3, 169, 244,1);
-    position: absolute;
-    z-index: 0;
-    margin-left: 170px;
-    margin-top: 50px;
-  }
-  .establishment-box{
-    width: 80px;
-    height: 40px;
-    background-color: rgba(3, 169, 244,1);
-    position: absolute;
-    z-index: 0;
-    margin-left: 175px;
-    margin-top: 50px;
-  }
-  .structure-box{
-    width: 60px;
-    height: 40px;
-    background-color: rgba(3, 169, 244,1);
-    position: absolute;
-    z-index: 0;
-    margin-left: 130px;
-    margin-top: 50px;
-  }
-  .syllabus-box{
-    width: 40px;
-    height: 40px;
-    background-color: rgba(3, 169, 244,1);
-    position: absolute;
-    z-index: 0;
-    margin-left: 130px;
-    margin-top: 50px;
-  }
-  .book-box{
-    width: 120px;
-    height: 40px;
-    background-color: rgba(3, 169, 244,1);
-    position: absolute;
-    z-index: 0;
-    margin-left: 190px;
-    margin-top: 50px;
-  }
+  
 /* common_page */
 @media (max-width:480px){
 

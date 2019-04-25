@@ -9,10 +9,11 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail, EmailMessage
 from .forms import WorkshopRegistrationForm, EventRegistrationForm
 from .models import Page, Image, Presentation, Circular, PracticeSession, Poster, Files, QuestionPaper, \
-    Video, Workshop, WorkshopRegistration, EventRegistration, Event
+    Video, Workshop, WorkshopRegistration, EventRegistration, Event, Charts
 from uhvpe.settings.base import RECAPTCHA_PUBLIC_KEY, RECEIVER_EMAIL, EMAIL_HOST_USER
 
 import json
+
 
 
 # Create your views here.
@@ -40,7 +41,7 @@ class DirectorMessageView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Director <u style='color:#fff'>Message</u></span><span class='director-box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Director Message </h3></div>"
         page = Page.objects.filter(page_name='Director Message').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -51,7 +52,7 @@ class VisionAndMissionView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2' ><span class='about-us'>Vision & <u style='color:#fff'>Mission</u></span><span class='vision-box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class='my-2' ><span class='about-us'>Vision & Mission</span></h3></div>"
         page = Page.objects.filter(page_name='Vision And Mission').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -62,7 +63,7 @@ class EstablishmentView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Establish<u style='color:#fff'>ment</u></span><span class='establishment-box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Establishment</span> </h3></div>"
         page = Page.objects.filter(page_name='Establishment').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -73,7 +74,7 @@ class StructureView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Struct<u style='color:#fff'>ure</u></span><span class='structure-box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Structure</span> </h3></div>"
         page = Page.objects.filter(page_name='Structure').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -84,9 +85,11 @@ class SyllabusView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Syllab<u style='color:#fff'>us</u></span><span class='syllabus-box box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Syllabus</span> </h3></div>"
         page = Page.objects.filter(page_name='Syllabus').first()
         files = Files.objects.filter(page=page)
+        for i in files:
+            print(i.file.content_type())
         images = Image.objects.filter(page=page)
         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
                                                             'files':files, 'images':images})
@@ -95,7 +98,7 @@ class BookAndAuthorsView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Book And <u style='color:#fff'>Authors</u></span><span class='book-box box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Book And Authors</span></h3></div>"
         page = Page.objects.filter(page_name='Book And Authors').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -106,7 +109,7 @@ class UnitWiseNotesView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Unit Wise Notes</span><span class='box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Unit Wise Notes</span> </h3></div>"
         page = Page.objects.filter(page_name='Unit Wise Notes').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -117,7 +120,7 @@ class VideoLecturesView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Video Lectures</span><span class='box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Video Lectures</span> </h3></div>"
         page = Page.objects.filter(page_name='Video Lectures').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -129,7 +132,7 @@ class UnitWisePPTView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Unit Wise PPT</span><span class='box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Unit Wise PPT</span> </h3></div>"
         page = Page.objects.filter(page_name='Unit Wise PPT').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -140,7 +143,7 @@ class UTQuestionPaperView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>UT Question Paper</span><span class='box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>UT Question Paper</span> </h3></div>"
         page = Page.objects.filter(page_name='UT Question Paper').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -151,7 +154,7 @@ class PreviousPaperView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Previous Year Papers</span><span class='box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Previous Year Papers</span> </h3></div>"
         page = Page.objects.filter(page_name='Previous Paper').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -162,7 +165,7 @@ class FDPView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>FDP</span><span class='box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>FDP</span> </h3></div>"
         page = Page.objects.filter(page_name='FDP').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -173,7 +176,7 @@ class StudentsWorkshopView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>About-Us</span><span class='box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Students' Workshop</span> </h3></div>"
         page = Page.objects.filter(page_name='Students Workshop').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -184,7 +187,7 @@ class UpcomingWorkshopView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>About-Us</span><span class='box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Upcoming Workshops</span> </h3></div>"
         page = Page.objects.filter(page_name='Upcoming Workshop').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -195,7 +198,7 @@ class EventsView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>About-Us</span><span class='box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Events</span> </h3></div>"
         page = Page.objects.filter(page_name='Events').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -206,34 +209,52 @@ class ClubsView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>About-Us</span><span class='box'></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Clubs</span> </h3></div>"
         page = Page.objects.filter(page_name='Clubs').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
                                                             'files':files, 'images':images})
 
-class ImapactStudentView(View):
+class ImpactStudentView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Imapact On Student</span><span class='box'></span> </h3></div>"
-        page = Page.objects.filter(page_name='Imapact On Student').first()
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Impact On Students</span> </h3></div>"
+        page = Page.objects.filter(page_name='Impact On Student').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
                                                             'files':files, 'images':images})
 
-class ImapactFacultyView(View):
+class ImpactFacultyView(View):
     template_name = 'common_page.html'
 
     def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Imapact On Faculty</span><span class='box'></span> </h3></div>"
-        page = Page.objects.filter(page_name='Imapact On Faculty').first()
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Impact On Faculty</span> </h3></div>"
+        page = Page.objects.filter(page_name='Impact On Faculty').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
+        charts = Charts.objects.filter(page=page)
+        charts_to_show = {}
+        for chart in charts:
+            print("chart",chart)
+            chart_values = []
+            value = chart.values.split(',')
+            print("value",value)
+            j=0
+            while(j<(2*chart.number_of_values)):
+                chart_value = []
+                print(j,"-",value[j])
+                chart_value.append(value[j])
+                j+=1
+                chart_value.append(int(value[j]))
+                j+=1
+                chart_values.extend([chart_value])
+            charts_to_show[chart.text] = chart_values
         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
-                                                            'files':files, 'images':images})
+                                                            'files':files, 'images':images, 'charts':charts_to_show})
+
 
 class SaveContactView(View):
 
