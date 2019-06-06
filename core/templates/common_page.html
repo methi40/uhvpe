@@ -70,7 +70,8 @@
             <div class="row">
                 {% get_media_prefix as media_link %}
                 {% for object in videos %}
-                <div class="carousel-item active col-lg-4 col-sm-12">
+                <div class="col-lg-4 col-sm-12">
+                    <span class="pdf-title">{{object.video_name}}</span>
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="{{ object.url }}" allowfullscreen></iframe>
                     </div>

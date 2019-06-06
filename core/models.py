@@ -111,10 +111,11 @@ class Charts(models.Model):
 class Video(models.Model):
     page = models.ForeignKey(Page)
     url = models.URLField()
-    name = models.CharField(max_length=50, choices=choices, blank=False)
+    position = models.CharField(max_length=50, choices=choices, blank=False)
+    video_name = models.CharField(max_length=500, blank=False)
 
     def __str__(self):
-        return self.page.page_name + "-" + self.name + "-" + self.url
+        return self.page.page_name + "-" + self.video_name
 
 
 class WorkshopRegistration(models.Model):

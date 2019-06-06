@@ -122,7 +122,7 @@ class VideoLecturesView(View):
         page = Page.objects.filter(page_name='Video Lectures').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
-        videos = Video.objects.filter(page=page, name='None')
+        videos = Video.objects.filter(page=page)
         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
                                                             'files':files, 'images':images, 'videos':videos})
 
@@ -236,14 +236,11 @@ class ImpactFacultyView(View):
         charts = Charts.objects.filter(page=page)
         charts_to_show = {}
         for chart in charts:
-            print("chart",chart)
             chart_values = []
             value = chart.values.split(',')
-            print("value",value)
             j=0
             while(j<(2*chart.number_of_values)):
                 chart_value = []
-                print(j,"-",value[j])
                 chart_value.append(value[j])
                 j+=1
                 chart_value.append(int(value[j]))
