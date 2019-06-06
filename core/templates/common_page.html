@@ -25,9 +25,9 @@
                 data.addColumn('string', 'People');
                 data.addColumn('number', 'number');
                 data.addRows({{value|safe}});
-
+            
                 var options = {};
-
+            
                 var chart = new google.visualization.PieChart(document.getElementById('chart_div{{forloop.counter}}'));
                 chart.draw(data, options);
             {% endfor %}
@@ -60,7 +60,7 @@
             {% if page %}
             <div class="row">
                 <div class="col-12">
-                    <p>{{page.content|safe}}</p>
+                    {{page.content|safe}}
                 </div>
             </div>
             {% endif %}
@@ -70,8 +70,10 @@
             <div class="row">
                 {% get_media_prefix as media_link %}
                 {% for object in videos %}
-                <div class="col-4 mx-auto">
-                    <a class="embed-responsive-item" href="{{ object.url }}" target="_blank"><img class="embed-responsive-item" src="{{media_link}}{{object.image}}" class="d-block w-100" alt="video"></a>
+                <div class="carousel-item active col-lg-4 col-sm-12">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="{{ object.url }}" allowfullscreen></iframe>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
@@ -87,7 +89,7 @@
                     {% endfor %}
                 </div>
                 {% endif %}
-
+                
                 {% if charts %}
                 {% for text, value in charts.items%}
                 <div class="col-lg-10 col-md-10 col-sm-12 mx-auto shadow" style="margin:50px 0px 50px 0px">
@@ -99,7 +101,7 @@
                 </div>
                 {% endfor %}
                 {% endif %}
-
+                
                 {% else %}
                 <p class="heading_text"> No content.</p>
                 {% endif %}
