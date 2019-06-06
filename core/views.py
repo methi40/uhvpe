@@ -167,8 +167,22 @@ class FDPView(View):
         page = Page.objects.filter(page_name='FDP').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
+        charts = Charts.objects.filter(page=page)
+        charts_to_show = {}
+        for chart in charts:
+            chart_values = []
+            value = chart.values.split(',')
+            j=0
+            while(j<(2*chart.number_of_values)):
+                chart_value = []
+                chart_value.append(value[j])
+                j+=1
+                chart_value.append(int(value[j]))
+                j+=1
+                chart_values.extend([chart_value])
+            charts_to_show[chart.text] = chart_values
         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
-                                                            'files':files, 'images':images})
+                                                            'files':files, 'images':images, 'charts':charts_to_show})
 
 class StudentsWorkshopView(View):
     template_name = 'common_page.html'
