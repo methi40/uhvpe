@@ -47,11 +47,9 @@
             {% if images %}
             <div class="row">
                 {% for image in images %}
-                
                 <div class="col-lg-4 col-sm-12 img-column">
                     <img src="{{media_link}}{{image.image.url}}" class="img-fluid " alt="image" >
                 </div>
-                
                 {% endfor %}
             </div>
             {% endif %}
@@ -67,7 +65,7 @@
             
             
             {% if videos %}
-            <div class="row">
+            <div class="row-name">
                 {% get_media_prefix as media_link %}
                 {% for object in videos %}
                 <div class="col-lg-4 col-sm-12">
@@ -80,32 +78,33 @@
             </div>
             {% endif %}
             
+            
             {% if files %}
-            <div class="row">
+            <div class="row-name">
                 {% for file in files %}
-                <div class="col-6 " style="margin-bottom:50px; margin-top:50px ;color: rgb(0, 0, 0);">
-                    <span class="pdf-title">{{file.name}}</span>
-                    <embed class="shadow pdf" src="{{ file.file.url }}" type="application/pdf" width="100%" height="600px;" style="margin:2px 5px 2px 5px !important" >
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endif %}
+                    <div class="col-6 " style="margin-bottom:50px; margin-top:50px ;color: rgb(0, 0, 0);">
+                        <span class="pdf-title">{{file.name}}</span>
+                        <embed class="shadow pdf" src="{{ file.file.url }}" type="application/pdf" width="100%" height="600px;" style="margin:2px 5px 2px 5px !important" >
+                        </div>
+                {% endfor %}
+            </div>
+            {% endif %}
                 
-                {% if charts %}
+            {% if charts %}
                 {% for text, value in charts.items%}
                 <div class="col-lg-10 col-md-10 col-sm-12 mx-auto shadow" style="margin:50px 0px 50px 0px">
                     <div class="row" style="padding:20px 0 20px 0;font-weight: 700">
                         <div class="col-12">{{text}}</div> 
                         <div class="col-12" id="chart_div{{forloop.counter}}" style="padding:px ;min-height:400px; width: inherit " ></div>
                     </div>
-                    
+
                 </div>
                 {% endfor %}
-                {% endif %}
+            {% endif %}
                 
-                {% else %}
-                <p class="heading_text"> No content.</p>
-                {% endif %}
+            {% else %}
+            <p class="heading_text"> No content.</p>
+            {% endif %}
             </div>
         </div>
         <!-- footer page -->

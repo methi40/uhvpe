@@ -25,8 +25,8 @@ class IndexView(View):
     def get(self, request, *args, **kwargs):
         page = Page.objects.filter(page_name='Home').first()
         slider_images = Image.objects.filter(page=page, name__icontains='slider')
-        videos_left = Video.objects.filter(page=page, name='Left')
-        videos_right = Video.objects.filter(page=page, name='Right')
+        videos_left = Video.objects.filter(page=page, position='Left')
+        videos_right = Video.objects.filter(page=page, position='Right')
         total_workshop = Image.objects.filter(page=page, name='Total Workshop').first()
         student_member = Image.objects.filter(page=page, name='Student Members').first()
         teacher_member = Image.objects.filter(page=page, name='Teacher Members').first()

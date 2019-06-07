@@ -20,6 +20,13 @@ body{
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
+
+.row-name{
+  text-align: center;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
 /* side-nav */
 .vertical-nav-row{
   width: 10vw;
@@ -276,7 +283,7 @@ nav{
   .center_content{
     margin-top: 150px;
     text-justify: inter-word;
-    text-align: center;
+    /* text-align: center; */
   }
   .center_content p{
     font-size: 12pt;
