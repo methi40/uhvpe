@@ -47,7 +47,7 @@
             {% if images %}
             <div class="row">
                 {% for image in images %}
-                <div class="col-lg-4 col-sm-12 img-column">
+                <div class="col-lg-4 col-sm-12 img-column" style="text-align: center;">
                     <img src="{{media_link}}{{image.image.url}}" class="img-fluid " alt="image" >
                 </div>
                 {% endfor %}
@@ -65,10 +65,10 @@
             
             
             {% if videos %}
-            <div class="row-name">
+            <div class="row">
                 {% get_media_prefix as media_link %}
                 {% for object in videos %}
-                <div class="col-lg-4 col-sm-12">
+                <div class="col-lg-4 col-sm-12" style="text-align: center;">
                     <span class="pdf-title">{{object.video_name}}</span>
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="{{ object.url }}" allowfullscreen></iframe>
@@ -80,9 +80,9 @@
             
             
             {% if files %}
-            <div class="row-name">
+            <div class="row">
                 {% for file in files %}
-                    <div class="col-6 " style="margin-bottom:50px; margin-top:50px ;color: rgb(0, 0, 0);">
+                    <div class="col-6 " style="margin-bottom:50px; margin-top:50px ;color: rgb(0, 0, 0); text-align: center;">
                         <span class="pdf-title">{{file.name}}</span>
                         <embed class="shadow pdf" src="{{ file.file.url }}" type="application/pdf" width="100%" height="600px;" style="margin:2px 5px 2px 5px !important" >
                         </div>

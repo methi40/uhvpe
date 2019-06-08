@@ -49,11 +49,14 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contactUs"><span>Contact Us</span></a>
+                        {% if page.page_name == "Home" %}
+                            <a class="nav-link" href="#contactUs"><span>Contact Us</span></a>
+                        {% else %}
+                            <a class="nav-link" href="/#contactUs"><span>Contact Us</span></a>
+                        {% endif %}
                     </li>
                 </ul>
             </div>
-            
         </div>
     </div>
 </nav>

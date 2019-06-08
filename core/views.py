@@ -28,10 +28,9 @@ class IndexView(View):
         videos_left = Video.objects.filter(page=page, position='Left')
         videos_right = Video.objects.filter(page=page, position='Right')
         images = Image.objects.filter(page=page)
-        print(images)
         key = RECAPTCHA_PUBLIC_KEY
         return render(request, self.template_name, context={'videos_left':videos_left, 'videos_right':videos_right,
-                                                            'images':images,'key':key})
+                                                            'images':images,'key':key, 'page':page})
 
 
 class DirectorMessageView(View):
