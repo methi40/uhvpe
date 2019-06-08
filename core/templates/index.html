@@ -161,19 +161,12 @@
                     
                     <br>The department will contribute, through Value Education, to the world view that is required for a humane society</p>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 workshops">
-                    <p class="text-center"><i class="fas fa-globe-africa" style="margin-right:10px"></i>{{ total_workshop.name }}</p>
-                    <h1 class="numscroller text-center" data-min='1' data-max='{{ total_workshop.number }}' data-delay='5' data-increment='5'>{{ total_workshop.number }}</h1>
-                    
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 student-members">
-                    <p class="text-center"><i class="fas fa-user-graduate" style="margin-right:10px;"></i>{{ student_member.name }}</p>
-                    <h1 class="numscroller text-center" data-min='1' data-max='{{ student_member.number }}' data-delay='5' data-increment='5'>{{ student_member.number }}</h1>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 teacher-members">
-                    <p class="text-center"><i class="fas fa-chalkboard-teacher" style="margin-right:10px"></i>{{ teacher_member.name }}</p>
-                    <h1 class="numscroller text-center" data-min='1' data-max='{{ teacher_member.name }}' data-delay='5' data-increment='5'>{{ teacher_member.name }}</h1>
-                </div>
+                {% for image in images %}
+                    <div class="col-lg-4 col-md-4 col-sm-4 workshops">
+                        <p class="text-center"><i class="fas fa-globe-africa" style="margin-right:10px"></i>{{ image.name }}</p>
+                        <h1 class="numscroller text-center" data-min='1' data-max='{{ image.number }}' data-delay='5' data-increment='5'>{{ image.number }}</h1>
+                    </div>
+                {% endfor %}
             </div>
             
             <!--/about page section-->

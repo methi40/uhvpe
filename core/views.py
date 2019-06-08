@@ -24,17 +24,14 @@ class IndexView(View):
 
     def get(self, request, *args, **kwargs):
         page = Page.objects.filter(page_name='Home').first()
-        slider_images = Image.objects.filter(page=page, name__icontains='slider')
+        # slider_images = Image.objects.filter(page=page, name__icontains='slider')
         videos_left = Video.objects.filter(page=page, position='Left')
         videos_right = Video.objects.filter(page=page, position='Right')
-        total_workshop = Image.objects.filter(page=page, name='Total Workshop').first()
-        student_member = Image.objects.filter(page=page, name='Student Members').first()
-        teacher_member = Image.objects.filter(page=page, name='Teacher Members').first()
+        images = Image.objects.filter(page=page)
+        print(images)
         key = RECAPTCHA_PUBLIC_KEY
         return render(request, self.template_name, context={'videos_left':videos_left, 'videos_right':videos_right,
-                                                            'slider_image': slider_images, 'total_workshop':total_workshop,
-                                                            'student_member':student_member, 'teacher_member':teacher_member,
-                                                            'key':key})
+                                                            'images':images,'key':key})
 
 
 class DirectorMessageView(View):
