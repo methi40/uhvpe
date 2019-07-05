@@ -39,3 +39,4 @@ admin.site.register(Charts)
 # admin.site.register(WorkshopRegistration, WorkshopRegistrationAdmin)
 # admin.site.register(Event, EventAdmin)
 # admin.site.register(EventRegistration, EventRegistrationAdmin)
+

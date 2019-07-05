@@ -296,12 +296,30 @@ class SaveContactView(View):
                 data_to_frontend['message'] = 'Request failed due to internal error.'
         return JsonResponse(data_to_frontend)
 
-def view404(request):
+
+
+class Developer_View(View):
+    template_name = 'developer.html'
+
+    def get(self, request, *args, **kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Developer</span> </h3></div>"
+        page = Page.objects.filter(page_name='Developer').first()
+        files = Files.objects.filter(page=page)
+        images = Image.objects.filter(page=page)
+
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
+                                                            'files':files, 'images':images,})
+
+
+
+def view404(request,*args,**kwargs):
     error_code = 404
     error_message = 'Page Not Found'
     return render(request, 'Error.html', {'error_code':error_code, 'error_message':error_message})
 
-def view500(request):
+def view500(request,*args,**kwargs):
     error_code = 500
     error_message = 'Internal Server Error'
     return render(request, 'Error.html', {'error_code':error_code, 'error_message':error_message})
+
+

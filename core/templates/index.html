@@ -164,7 +164,7 @@
                 {% for image in images %}
                     <div class="col-lg-4 col-md-4 col-sm-4 workshops">
                         <p class="text-center"><i class="fas fa-globe-africa" style="margin-right:10px"></i>{{ image.name }}</p>
-                        <h1 class="numscroller text-center" data-min='1' data-max='{{ image.number }}' data-delay='5' data-increment='5'>{{ image.number }}</h1>
+                        <h1 class="numscroller text-center" data-min='1' data-max='{{ image.number }}' data-delay='5' data-increment='5' style="background-image:url('{{ STATIC_URL }}media/{{ image.image }}');">{{ image.number }}</h1>
                     </div>
                 {% endfor %}
             </div>

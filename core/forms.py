@@ -129,3 +129,5 @@ class EventRegistrationForm(ModelForm):
     class Meta:
         model = EventRegistration
         fields = ['name', 'email', 'phone', 'student_no', 'branch', 'year']
+
+

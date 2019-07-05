@@ -63,7 +63,7 @@ class Poster(models.Model):
 
 
 class Files(models.Model):
-    page = models.ForeignKey(Page)
+    page = models.ForeignKey(Page,on_delete=models.CASCADE)
     name = models.CharField(max_length=50, unique=True)
     file = models.FileField(upload_to='note/', unique=True)
 
@@ -80,7 +80,7 @@ class QuestionPaper(models.Model):
 
 
 class Image(models.Model):
-    page = models.ForeignKey(Page)
+    page = models.ForeignKey(Page,on_delete=models.CASCADE)
     name = models.CharField(max_length=50, unique=True)
     number = models.CharField(max_length=25, default='')
     image = models.ImageField(upload_to='slider_image/', unique=True)
@@ -89,7 +89,7 @@ class Image(models.Model):
         return self.page.page_name + "-" + self.name
 
 class Charts(models.Model):
-    page = models.ForeignKey(Page)
+    page = models.ForeignKey(Page,on_delete=models.CASCADE)
     text = models.CharField(max_length=500, unique=True)
     number_of_values = models.BigIntegerField()
     values = models.CharField(max_length=500, blank=False)
@@ -109,7 +109,7 @@ class Charts(models.Model):
         super(Charts, self).save(*args, **kwargs)
 
 class Video(models.Model):
-    page = models.ForeignKey(Page)
+    page = models.ForeignKey(Page,on_delete=models.CASCADE)
     url = models.URLField()
     position = models.CharField(max_length=50, choices=choices, blank=False)
     video_name = models.CharField(max_length=500, blank=False)
@@ -119,7 +119,7 @@ class Video(models.Model):
 
 
 class WorkshopRegistration(models.Model):
-    workshop = models.ForeignKey(Workshop)
+    workshop = models.ForeignKey(Workshop,on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.BigIntegerField()
@@ -145,7 +145,7 @@ class EventRegistration(models.Model):
     ('MCA', 'MCA'), ('MBA', 'MBA'), ('CS', 'CS'), ('IT', 'IT'),
     ('ECE', 'ECE'), ('EN', 'EN'), ('ME', 'ME'),('EI','EI'),('CE','CE'))
     YEAR_CHOICES=((0,'----'),(1,'1'),(2,'2'),(3,'3'),(4,'4'))
-    event = models.ForeignKey(Event)
+    event = models.ForeignKey(Event,on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.BigIntegerField()
@@ -158,3 +158,4 @@ class EventRegistration(models.Model):
 
     class Meta:
         unique_together = ('event', 'email')
+
