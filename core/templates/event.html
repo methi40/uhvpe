@@ -14,26 +14,40 @@
 
 </head>
 <body>
-    <!--navbar page-->
+
     <div class="container-fluid">
-        {% include 'header.html' %}
-        {{ display_name|safe }}
+         {% include 'header.html' %}
+<!--        <h1 class="evn">Events</h1>-->
+<!--        <h1 class="evnname">Event Name</h1>-->
+                {{ display_name|safe }}
 
-         <div class="col-lg-10 col-md-10 col-sm-12 mx-auto center_content" style="min-height:375px">
-{% if page %}
+ <div class="col-lg-10 col-md-10 col-sm-12 mx-auto center_content" style="min-height:375px">
+{% if event %}
+{% for events in event %}
 
-{{page.content|safe|escape}}
+<div class="col-lg-10 col-md-10 col-sm-12 mx-auto shadow" style="margin:50px 0px 50px 0px;">
+            <div class="row" style="padding:20px 0 20px 0;font-weight: 700">
+                <div class="col-12" > <h3 class="evnname"style="font-size:35px;font-weight:Bold;letter-spacing:2px;">{{events.name}}</h3></div>
+                <div class="col-12"  style="padding:px ;min-height:400px; width: inherit " >{{events.description|safe}}</div>
+            </div>
+
+        </div>
+{% endfor %}
+
 {% else %}
 <p class="heading_text"> No content.</p>
 {% endif %}
  </div>
-        </div>
-         {% include 'footer.html' %}
-        <!--jqery, bootstrap - plugons-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</div>
+<div style="height:5rem"></div>
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <script>
+
+      {% include 'footer.html' %}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
             (function($){
 	$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
 	  if (!$(this).next().hasClass('show')) {
@@ -52,7 +66,5 @@
         </script>
 </body>
 </html>
-
-
 
 

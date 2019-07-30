@@ -1,7 +1,7 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.exceptions import ValidationError
-
+from datetime import date
 
 # Create your models here.
 
@@ -135,10 +135,13 @@ class Event(models.Model):
     name = models.CharField(max_length=50)
     description = RichTextUploadingField(blank=True)
     active = models.BooleanField(default=False)
-
+    new_event = models.BooleanField(default=False)
+    date = models.DateField(("Date"), default=date.today)
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['-id']
 
 class EventRegistration(models.Model):
     BRANCH_CHOICES = ((None,'----'),
@@ -159,3 +162,9 @@ class EventRegistration(models.Model):
     class Meta:
         unique_together = ('event', 'email')
 
+class Notification(models.Model):
+    name = models.CharField(max_length=200)
+    new_notification = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name

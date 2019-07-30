@@ -9,7 +9,7 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail, EmailMessage
 from .forms import WorkshopRegistrationForm, EventRegistrationForm
 from .models import Page, Image, Presentation, Circular, PracticeSession, Poster, Files, QuestionPaper, \
-    Video, Workshop, WorkshopRegistration, EventRegistration, Event, Charts
+    Video, Workshop, WorkshopRegistration, EventRegistration, Event, Charts,Notification
 from uhvpe.settings.base import RECAPTCHA_PUBLIC_KEY, RECEIVER_EMAIL, EMAIL_HOST_USER
 
 import json
@@ -28,9 +28,11 @@ class IndexView(View):
         videos_left = Video.objects.filter(page=page, position='Left')
         videos_right = Video.objects.filter(page=page, position='Right')
         images = Image.objects.filter(page=page)
+        recent_events = Event.objects.filter(active=True) | Event.objects.filter(new_event=True)
+        notification = Notification.objects.all()
         key = RECAPTCHA_PUBLIC_KEY
         return render(request, self.template_name, context={'videos_left':videos_left, 'videos_right':videos_right,
-                                                            'images':images,'key':key, 'page':page})
+                                                            'images':images,'key':key, 'page':page ,'recent_events':recent_events ,'notification':notification})
 
 
 class DirectorMessageView(View):
@@ -311,6 +313,102 @@ class Developer_View(View):
                                                             'files':files, 'images':images,})
 
 
+class Nature_Club_About(View):
+    template_name = 'common_page.html'
+
+    def get(self,request,*args,**kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Nature_Club_About</span> </h3></div>"
+        page = Page.objects.filter(page_name='Nature_Club_About').first()
+        files = Files.objects.filter(page=page)
+        images = Image.objects.filter(page=page)
+
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
+                                                            'files': files, 'images': images, })
+
+class Nature_Club_Activity(View):
+    template_name = 'common_page.html'
+
+    def get(self,request,*args,**kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Nature_Club_Activity</span> </h3></div>"
+        page = Page.objects.filter(page_name='Nature_Club_Activity').first()
+        files = Files.objects.filter(page=page)
+        images = Image.objects.filter(page=page)
+
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
+                                                            'files': files, 'images': images, })
+
+
+class Health_Club_About(View):
+    template_name = 'common_page.html'
+
+    def get(self,request,*args,**kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Health_Club_About</span> </h3></div>"
+        page = Page.objects.filter(page_name='Health_Club_About').first()
+        files = Files.objects.filter(page=page)
+        images = Image.objects.filter(page=page)
+
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
+                                                            'files': files, 'images': images, })
+
+class Health_Club_Activity(View):
+    template_name = 'common_page.html'
+
+    def get(self,request,*args,**kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Health_Club_Activity</span> </h3></div>"
+        page = Page.objects.filter(page_name='Health_Club_Activity').first()
+        files = Files.objects.filter(page=page)
+        images = Image.objects.filter(page=page)
+
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
+                                                            'files': files, 'images': images, })
+
+
+class Event_Page(View):
+    template_name ='event.html'
+
+    def get(self,request,id=None,*args,**kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Events</span> </h3></div>"
+        if(id==None):
+            event = Event.objects.all().order_by("-id")
+            return render(request,self.template_name, context={'event':event,'display_name': display_name,})
+        else:
+            dict=[]
+            event2 = Event.objects.filter(id=id)
+            dict.extend(event2)
+            event1 = Event.objects.exclude(id=id).order_by("-id")
+            dict.extend(event1)
+            return render(request, self.template_name, context={'event':dict,'display_name': display_name,})
+
+
+
+
+
+
+
+class Sharing_Of_Students(View):
+    template_name = 'common_page.html'
+
+    def get(self,request,*args,**kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Sharing_of_Students</span> </h3></div>"
+        page = Page.objects.filter(page_name='Sharing_of_student').first()
+        files = Files.objects.filter(page=page)
+        images = Image.objects.filter(page=page)
+
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
+                                                            'files': files, 'images': images, })
+
+
+class Sharing_Of_FacultyMembers(View):
+    template_name = 'common_page.html'
+
+    def get(self,request,*args,**kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Sharing_of_FacultyMembers</span> </h3></div>"
+        page = Page.objects.filter(page_name='Sharing_of_facultymembers').first()
+        files = Files.objects.filter(page=page)
+        images = Image.objects.filter(page=page)
+
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
+                                                            'files': files, 'images': images, })
 
 def view404(request,*args,**kwargs):
     error_code = 404
@@ -321,5 +419,10 @@ def view500(request,*args,**kwargs):
     error_code = 500
     error_message = 'Internal Server Error'
     return render(request, 'Error.html', {'error_code':error_code, 'error_message':error_message})
+
+
+
+
+
 
 

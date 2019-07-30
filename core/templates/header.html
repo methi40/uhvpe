@@ -6,18 +6,18 @@
         </button>
         <a class="navbar-brand active home" href="{%url 'home'%}"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
         <div class=" collapse navbar-collapse " id="navbarTogglerDemo03">
-            
+
             <div class=" nav-options ">
-                
+
                 <ul class=" navbar-nav mt-4  mt-lg-0 ">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >VE Cell</span></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{%url 'vision-and-mission'%}">Vision and Mission</a>
-                            <a class="dropdown-item" href="{%url 'director-message'%}">Director Message</a>
-                            <a class="dropdown-item" href="{%url 'establishment'%}">Establishment</a>
-                            <a class="dropdown-item" href="{%url 'structure'%}">Structure of VE Cell</a>
-                        </div>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{%url 'vision-and-mission'%}">Vision and Mission</a></li>
+                         <li><a class="dropdown-item" href="{%url 'director-message'%}">Director Message</a></li>
+                         <li><a class="dropdown-item" href="{%url 'establishment'%}">Establishment</a></li>
+                         <li><a class="dropdown-item" href="{%url 'structure'%}">Structure of VE Cell</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Resources</span></a>
@@ -33,13 +33,30 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Activities</span></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{%url 'fdps'%}">FDPs</a>
-                            <a class="dropdown-item" href="{%url 'students-workshop'%}">Student's Workshops</a>
-                            <a class="dropdown-item" href="{%url 'upcoming-workshop'%}">Coming Workshops</a>
-                            <a class="dropdown-item" href="{%url 'events'%}">Events</a>
-                            <a class="dropdown-item" href="{%url 'clubs'%}">Clubs</a>
-                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{%url 'fdps'%}">FDPs</a></li>
+                            <li><a class="dropdown-item" href="{%url 'students-workshop'%}">Student's Workshops</a></li>
+                            <li><a class="dropdown-item" href="{%url 'upcoming-workshop'%}">Coming Workshops</a></li>
+                            <li><a class="dropdown-item" href="{%url 'event'%}">Events</a></li>
+                            <li class="dropdown nav-item">
+                                <a class="dropdown-toggle nav-link dropdown-item" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 4px 24px">Clubs</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown nav-item"><a class="dropdown-toggle nav-link dropdown-item" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 4px 24px" >Nature Club</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href ="{%url 'club_about'%}">About</a></li
+                                            <li><a class="dropdown-item" href="{%url 'club_activity'%}">Activity</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown nav-item"><a  class="dropdown-toggle nav-link dropdown-item" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 4px 24px">Health Club</a>
+                                    <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{%url 'health_about'%}">About</a></li
+                                            <li><a class="dropdown-item" href="{%url 'health_activity'%}">Activity</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Impacts</span></a>
@@ -57,6 +74,14 @@
                         {% endif %}
                     </li>-->
                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Sharing</span></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{%url 'sharing_students'%}">Sharing Of Students</a>
+                            <a class="dropdown-item" href="{%url 'sharing_facultymember' %}">Sharing Of FacultyMembers</a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Contact Us</span></a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{% url 'developer'%}">Developer</a>
@@ -73,4 +98,7 @@
         </div>
     </div>
 </nav>
+
+
 <!--navbar ends-->
+

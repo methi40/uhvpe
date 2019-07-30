@@ -293,6 +293,9 @@ nav{
 /* common_page */
 @media (max-width:480px){
 
+
+
+
   .nav-link span{
     font-weight: none;
     text-shadow: none;
@@ -365,11 +368,65 @@ nav{
       font-size: 10pt;
       line-height: 18pt;
     }
-    
+
     /* common page */
     /* form */
     .contact-us-img-col{
       margin-top: 80px;
     }
     /* form */
+
+
+}
+
+.aboutimg{
+height:12rem;
+margin:1.5rem 1rem;
+border-radius:10px;
+}
+
+.aboutimages{
+padding-top: 150px;
+margin-right:4rem;
+}
+
+
+@media (max-width: 992px){
+.aboutimages{
+  padding-top: 0px;
+  }
+
+  .aboutimg{
+height:7rem;
+margin:1.5rem 1rem;
+}
+
+
+}
+
+
+.event{
+    background-color: #0fa8f18a;
+    padding: 1rem;
+    border: 1px gray dotted;
+    color:black;
+    font-weight:bold;
+}
+
+.eventname{
+color:black;
+}
+
+.noti{
+color:#13aaf4;
+padding: 0.5rem;
+font-weight:bold;
+}
+
+.evn{
+margin: 50px 0px 0px 50px;
+}
+
+
+
 }

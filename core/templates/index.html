@@ -17,7 +17,7 @@
 <body>
     <!--navbar page-->
     {% include 'header.html' %}
-    
+
     <div class="container-fluid">
         <!-- fixed-side nav -->
         <div class=" position-fixed vertical-nav-row ">
@@ -28,7 +28,7 @@
                     <a href="https://www.facebook.com/pg/vecellakgec/posts/" target="_blank">  <li style="color:#fff;margin-top:10px;font-size:24px"> <i class="fab fa-instagram"></i> </li>  </a>
                 </ul>
                 <img class="img-fluid " style="marg  in-top:10px;width:50px;margin-left:25px"  src="{%static 'image/AKGEC_1_0.png' %}" alt="akgec logo">
-                
+
                 <!-- <div style="color:#fff;margin-top:100px;margin-left:-20px; transform: rotate(90deg);font-weight:bold; letter-spacing:1px">
                     <i class="fas fa-long-arrow-alt-right" style="margin-right:10px"></i>
                     KNOW-MORE
@@ -43,16 +43,17 @@
             </div>
         </div>
         <!-- fixed-main-content -->
-        
-        
+
+
         <!--landing-page-->
         <div class="row landing-page">
             <img src="{%static 'image/bg-0.jpg' %}" class="d-block w-100 landing-image" alt="slider-image" style="height:100vh;filter:blur(0px);">
         </div>
+
         <!-- video-section -->
         <div class="row ">
             <div class="col-lg-8 col-md-8 col-sm-12 mx-auto video-section">
-                
+
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 faculty-video wow fadeInLeft" data-wow-delay="0s"> <!--faculty-->
                         <div class="row ">
@@ -60,7 +61,7 @@
                                 <h5>Faculty Feedback</h5>
                             </div>
                         </div>
-                        
+
                         <div id="carouselExampleControlsLeft" class="carousel slide shadow-sm" data-ride="carousel">
                             <div class="carousel-inner">
                                 {% get_media_prefix as media_link %}
@@ -91,7 +92,7 @@
                             </a>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-6 col-md-6 col-sm-12 student-video wow fadeInRight" data-wow-delay="0s"> <!--student-->
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-sm-12 text-center student-feedback mx-auto">
@@ -126,49 +127,98 @@
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
         <!-- video-section -->
         <!--about page section-->
-        
-        <div class="row about-page" id="aboutUs">
+
+        <div class="row about-page mx-auto" id="aboutUs">
             <div class=" col-lg-12 mx-auto ">
                 <h1 class=" my-2"><span class="about-us">About-<u style='color:#fff'>Us</u></span><span class="box"></span></h1>
             </div>
-            <div class="col-lg-11 col-sm-12 my-2 mx-auto about-text">
-                <p><i class="fas fa-feather-alt" style="font-size:24px; margin-right:10px;"></i>Education is the key determinant of how the student utilizes the skills imparted for self-centered purposes or also for broader societal & environmental good. Human education facilitates human conduct and the development of humane society, otherwise education results in inhuman conduct and degradation of society and environment. We are witness to the conduct exhibited by the students, not only here, but world-wide. Due to lack of right understanding we have reached a point where we can clearly see the results of our collective education system problems such as pollution, resource depletion, and extinction of animals, global warming, terrorism and even threats to the human race on earth.
-                    
-                    This need for value based education has been repeatedly highlighted by various commissions and expert committees on education (Dr. Radhakrishnan, Dr. Kothari, UNESCO declaration on service to society and so on).
-                    
+            <div class="col-lg-6 col-sm-12 my-2 about-text mx-auto ">
+                <p><i class="fas fa-feather-alt" style="font-size:24px; margin-right:10px;"></i>Human education facilitates human conduct and the development of humane society, otherwise education results in inhuman conduct and degradation of society and environment.
+
                     The scope of education is to understand ones purposefulness or goal, both as an individual, as well as a society. Education should facilitate students to have the understanding, commitment, competence and the practice of living with definite Human conduct and to participate in the development of a humane society.
-                    
+
                     Education must be clearly about understanding (what to do?), learning skills (how to do?) and practicing the understanding & skills, leading to fulfillment of human purpose. Understanding of what to do, what is valuable is required and learning how to do is also required. Both are required. Human education must enable the student to (in order of priority):
-                    
+
                     <br><i class="far fa-dot-circle"></i> Develop Right Understanding By sharing the understanding of what to do (Value Education)
-                    
+
                     <br><i class="far fa-dot-circle"></i> Develop Right Skills by teaching how to do (Technical Education)
-                    
+
                     <br><i class="far fa-dot-circle"></i> Practice Right living during the period of education.
-                    
-                    <br><i class="fas fa-dot-circle"></i> Living in relationship with human being leading to mutual happiness
-                    
-                    <br><i class="fas fa-dot-circle"></i> Living in relationship with rest-of-nature leading to mutual prosperity
-                    
-                    <br>Over a period of time, such value-based education can contribute to the development of a humane society.
-                    
+
                     <br>The department will contribute, through Value Education, to the world view that is required for a humane society</p>
                 </div>
-                {% for image in images %}
+                <br>
+                <div class="col-lg-5 col-md-10 col-sm-12 text-center aboutimages">
+                    <div class="row my-2" >
+                        <div class="col-lg-6 col-md-4 col-sm-10 text-center mx-auto">
+                    <img src="{%static 'image/image1.jpg' %}" class="aboutimg mx-auto img-fluid">
+                </div>
+
+                         <div class="col-lg-6 col-md-4 col-sm-10 text-center">
+                    <img src="{%static 'image/image2.jpg' %}" class="aboutimg mx-auto img-fluid">
+                </div>
+
+                         <div class="col-lg-6 col-md-4 col-sm-10 text-center">
+                    <img src="{%static 'image/image3.jpg' %}" class="aboutimg mx-auto img-fluid">
+                </div>
+
+                        <div class="col-lg-6 col-md-4 col-sm-10 text-center">
+                    <img src="{%static 'image/image4.jpg' %}" class="aboutimg mx-auto img-fluid">
+                </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto">
+           <div class="row mx-auto">
+
+                <div class="col-md-5 mx-auto " >
+                    {% if recent_events%}
+                    <h3 style="margin-bottom:1rem">Recent Events</h3>
+                    {% for event in recent_events %}
+                    {% if event.new_event%}
+                    <p class="event" ><img src="{%static 'image/new1.gif' %}" style="height:27px"> <a href="{% url 'event_page' event.id %}" class="eventname"> {{event.name}}</a>
+                        <br> <span style="font-weight:100;font-size:0.8rem"> Date:{{event.date}} </span> </p>
+                    {% else %}
+                    <p class="event" > <a href="{% url 'event_page' event.id %}" class="eventname">{{event.name}}</a>
+                    <br><span style="font-weight:100;font-size:0.8rem"> Date:{{event.date}} </span></p>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-md-4 mx-auto" >
+                    {% if notification %}
+                    <h3  style="margin-bottom:1rem" >Notifications</h3>
+                    {% for notifications in notification %}
+                    {% if notifications.new_notification %}
+                    <p class="noti" ><img src="{%static 'image/new1.gif' %}" style="height:27px">{{notifications.name}}</p>
+                    {% else %}
+                    <p class="noti">{{notifications.name}}</p>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row about-page" id="aboutUs">
+
+            {% for image in images %}
                     <div class="col-lg-4 col-md-4 col-sm-4 workshops">
                         <p class="text-center"><i class="fas fa-globe-africa" style="margin-right:10px"></i>{{ image.name }}</p>
                         <h1 class="numscroller text-center" data-min='1' data-max='{{ image.number }}' data-delay='5' data-increment='5' style="background-image:url('{{ STATIC_URL }}media/{{ image.image }}');">{{ image.number }}</h1>
                     </div>
                 {% endfor %}
-            </div>
-            
+        </div>
+
+
+
             <!--/about page section-->
             <!--contact-us-->
             <div class="row resource-page" id="contactUs">
@@ -232,12 +282,12 @@
                 </div>
             </div>
             <!--/contact-us-->
-            
+
             <!--/landing-page-->
-            
+
             <!-- footer page -->
             {% include 'footer.html' %}
-            
+
         </div>
         <!--jqery, bootstrap - plugons-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -262,7 +312,7 @@
                 document.getElementById('contact_error').innerHTML = "";
                 document.getElementById('message_error').innerHTML = "";
                 document.getElementById('captcha_error').innerHTML = "";
-                
+
                 var email =  document.getElementById('email').value;
                 if (email == "") {
                     document.getElementById('email_error').innerHTML = "Cannot be empty";
@@ -278,7 +328,7 @@
                 if (contact == "") {
                     document.getElementById('contact_error').innerHTML = "Cannot be empty";
                     return false;
-                } 
+                }
                 else {
                     var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/;
                     if(!re.test(contact)){
@@ -336,6 +386,24 @@
                 });
             }
         </script>
+        <script>
+            (function($){
+	$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+	  if (!$(this).next().hasClass('show')) {
+		$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+	  }
+	  var $subMenu = $(this).next(".dropdown-menu");
+	  $subMenu.toggleClass('show');
+
+	  $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+		$('.dropdown-submenu .show').removeClass("show");
+	  });
+
+	  return false;
+	});
+})(jQuery)
+        </script>
     </body>
     </html>
-    
+
+
