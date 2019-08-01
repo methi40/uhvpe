@@ -317,7 +317,7 @@ class Nature_Club_About(View):
     template_name = 'common_page.html'
 
     def get(self,request,*args,**kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Nature_Club_About</span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Nature Club About</span> </h3></div>"
         page = Page.objects.filter(page_name='Nature_Club_About').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -329,7 +329,7 @@ class Nature_Club_Activity(View):
     template_name = 'common_page.html'
 
     def get(self,request,*args,**kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Nature_Club_Activity</span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Nature Club Activity</span> </h3></div>"
         page = Page.objects.filter(page_name='Nature_Club_Activity').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -342,7 +342,7 @@ class Health_Club_About(View):
     template_name = 'common_page.html'
 
     def get(self,request,*args,**kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Health_Club_About</span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Health Club About</span> </h3></div>"
         page = Page.objects.filter(page_name='Health_Club_About').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -354,7 +354,7 @@ class Health_Club_Activity(View):
     template_name = 'common_page.html'
 
     def get(self,request,*args,**kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Health_Club_Activity</span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Health Club Activity</span> </h3></div>"
         page = Page.objects.filter(page_name='Health_Club_Activity').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -389,7 +389,7 @@ class Sharing_Of_Students(View):
     template_name = 'common_page.html'
 
     def get(self,request,*args,**kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Sharing_of_Students</span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Sharing of Students</span> </h3></div>"
         page = Page.objects.filter(page_name='Sharing_of_student').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
@@ -402,7 +402,7 @@ class Sharing_Of_FacultyMembers(View):
     template_name = 'common_page.html'
 
     def get(self,request,*args,**kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Sharing_of_FacultyMembers</span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'>Sharing of FacultyMembers</span> </h3></div>"
         page = Page.objects.filter(page_name='Sharing_of_facultymembers').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
