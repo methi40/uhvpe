@@ -402,7 +402,7 @@ class Sharing_Of_FacultyMembers(View):
     template_name = 'common_page.html'
 
     def get(self,request,*args,**kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'><b>Sharing of FacultyMembers</b></span> </h3></div>"
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'><b>Sharing of Faculty Members</b></span> </h3></div>"
         page = Page.objects.filter(page_name='Sharing_of_facultymembers').first()
         files = Files.objects.filter(page=page)
         images = Image.objects.filter(page=page)
