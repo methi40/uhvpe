@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'ckeditor',
+    'ckeditor_uploader',
     'import_export',
     'recaptcha2',
     'django_cleanup', # Removes the file from server whenever an object with file field is deleted
