@@ -88,6 +88,15 @@ class Image(models.Model):
     def __str__(self):
         return self.page.page_name + "-" + self.name
 
+class Image_Slider(models.Model):
+    page = models.ForeignKey(Page,on_delete=models.CASCADE)
+    name = models.CharField(max_length=50,unique=True)
+    image = models.ImageField(upload_to='home_slider/',unique=True)
+
+    def __str__(self):
+        return self.page.page_name+"-"+self.name
+
+
 class Charts(models.Model):
     page = models.ForeignKey(Page,on_delete=models.CASCADE)
     text = models.CharField(max_length=500, unique=True)

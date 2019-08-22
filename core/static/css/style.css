@@ -293,9 +293,6 @@ nav{
 /* common_page */
 @media (max-width:480px){
 
-
-
-
   .nav-link span{
     font-weight: none;
     text-shadow: none;
@@ -377,6 +374,8 @@ nav{
     /* form */
 
 
+
+
 }
 
 .aboutimg{
@@ -427,6 +426,30 @@ font-weight:bold;
 margin: 50px 0px 0px 50px;
 }
 
+.car{
+height:32rem;
+width: auto;
+}
 
+.carou{
+padding: 0rem 9rem !important;
+}
+
+@media (max-width:480px){
+
+.aboutimages{
+padding-top: 150px;
+margin-right:0rem;
+}
+
+.car{
+height:13rem;
+width: auto;
+}
+
+.carou{
+padding: 0rem 1rem !important;
+}
+}
 
 }

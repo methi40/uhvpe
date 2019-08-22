@@ -9,7 +9,7 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail, EmailMessage
 from .forms import WorkshopRegistrationForm, EventRegistrationForm
 from .models import Page, Image, Presentation, Circular, PracticeSession, Poster, Files, QuestionPaper, \
-    Video, Workshop, WorkshopRegistration, EventRegistration, Event, Charts,Notification
+    Video, Workshop, WorkshopRegistration, EventRegistration, Event, Charts,Notification,Image_Slider
 from uhvpe.settings.base import RECAPTCHA_PUBLIC_KEY, RECEIVER_EMAIL, EMAIL_HOST_USER
 
 import json
@@ -30,9 +30,11 @@ class IndexView(View):
         images = Image.objects.filter(page=page)
         recent_events = Event.objects.filter(active=True) | Event.objects.filter(new_event=True)
         notification = Notification.objects.all()
+        image_slider = Image_Slider.objects.all()
         key = RECAPTCHA_PUBLIC_KEY
         return render(request, self.template_name, context={'videos_left':videos_left, 'videos_right':videos_right,
-                                                            'images':images,'key':key, 'page':page ,'recent_events':recent_events ,'notification':notification})
+                                                            'images':images, 'key':key,  'page':page ,  'recent_events':recent_events ,
+                                                            'notification':notification, 'image_slider':image_slider})
 
 
 class DirectorMessageView(View):
@@ -145,17 +147,17 @@ class UTQuestionPaperView(View):
         images = Image.objects.filter(page=page)
         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
                                                             'files':files, 'images':images})
-
-class PreviousPaperView(View):
-    template_name = 'common_page.html'
-
-    def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'><b>Previous Year Papers</b></span> </h3></div>"
-        page = Page.objects.filter(page_name='Previous Paper').first()
-        files = Files.objects.filter(page=page)
-        images = Image.objects.filter(page=page)
-        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
-                                                            'files':files, 'images':images})
+#
+# class PreviousPaperView(View):
+#     template_name = 'common_page.html'
+#
+#     def get(self, request, *args, **kwargs):
+#         display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'><b>Previous Year Papers</b></span> </h3></div>"
+#         page = Page.objects.filter(page_name='Previous Paper').first()
+#         files = Files.objects.filter(page=page)
+#         images = Image.objects.filter(page=page)
+#         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
+#                                                             'files':files, 'images':images})
 
 class FDPView(View):
     template_name = 'common_page.html'
@@ -193,16 +195,16 @@ class StudentsWorkshopView(View):
         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
                                                             'files':files, 'images':images})
 
-class UpcomingWorkshopView(View):
-    template_name = 'common_page.html'
-
-    def get(self, request, *args, **kwargs):
-        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'><b>Upcoming Workshops</b></span> </h3></div>"
-        page = Page.objects.filter(page_name='Upcoming Workshop').first()
-        files = Files.objects.filter(page=page)
-        images = Image.objects.filter(page=page)
-        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
-                                                            'files':files, 'images':images})
+# class UpcomingWorkshopView(View):
+#     template_name = 'common_page.html'
+#
+#     def get(self, request, *args, **kwargs):
+#         display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'><b>Upcoming Workshops</b></span> </h3></div>"
+#         page = Page.objects.filter(page_name='Upcoming Workshop').first()
+#         files = Files.objects.filter(page=page)
+#         images = Image.objects.filter(page=page)
+#         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
+#                                                             'files':files, 'images':images})
 
 class EventsView(View):
     template_name = 'common_page.html'
@@ -409,6 +411,19 @@ class Sharing_Of_FacultyMembers(View):
 
         return render(request, self.template_name, context={'page': page, 'display_name': display_name,
                                                             'files': files, 'images': images, })
+class AluminiSharing(View):
+    template_name = 'common_page.html'
+
+    def get(self, request, *args, **kwargs):
+        display_name = "<div class='col-lg-12 mx-auto '><h3 class=' my-2'><span class='about-us'><b>Sharing of Alumni</b></span> </h3></div>"
+        page = Page.objects.filter(page_name='Alumni Sharing').first()
+        files = Files.objects.filter(page=page)
+        images = Image.objects.filter(page=page)
+
+        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
+                                                            'files': files, 'images': images, })
+
+
 
 def view404(request,*args,**kwargs):
     error_code = 404
@@ -419,6 +434,9 @@ def view500(request,*args,**kwargs):
     error_code = 500
     error_message = 'Internal Server Error'
     return render(request, 'Error.html', {'error_code':error_code, 'error_message':error_message})
+
+
+
 
 
 
