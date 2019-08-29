@@ -9,4 +9,6 @@ db.sqlite3
 *.pyc
 # Media files
 media/
+uh/
+
 

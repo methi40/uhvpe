@@ -49,15 +49,11 @@ class DirectorMessageView(View):
                                                             'files':files, 'images':images})
 
 class VisionAndMissionView(View):
-    template_name = 'common_page.html'
+    template_name = 'vision-mission.html'
 
     def get(self, request, *args, **kwargs):
         display_name = "<div class='col-lg-12 mx-auto '><h3 class='my-2' ><span class='about-us'><b>Vision & Mission</b></span></h3></div>"
-        page = Page.objects.filter(page_name='Vision And Mission').first()
-        files = Files.objects.filter(page=page)
-        images = Image.objects.filter(page=page)
-        return render(request, self.template_name, context={'page': page, 'display_name': display_name,
-                                                            'files':files, 'images':images})
+        return render(request, self.template_name, context={ 'display_name': display_name})
 
 class EstablishmentView(View):
     template_name = 'common_page.html'

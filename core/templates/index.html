@@ -1,3 +1,4 @@
+    
 {% load staticfiles %}
 {% load static %}
 <!DOCTYPE html>
@@ -41,7 +42,7 @@
         <!-- fixed-side nav -->
         <!-- fixed-main-content -->
         <div class="row position-absolute header">
-            <div class="col-12 align-self-center wow fadeIn" data-wow-delay=".5s">
+            <div class="col-12 align-self-center wow fadeIn fadebox " data-wow-delay=".5s">
                 <p class="main-title">Value Education Cell, AKGEC <br> <u>&</u>Regional Nodal Centre, AKTU </p>
             </div>
         </div>
@@ -65,7 +66,7 @@
                             </div>
                         </div>
 
-                        <div id="carouselExampleControlsLeft" class="carousel slide shadow-sm" data-ride="carousel">
+                        <div id="carouselExampleControlsLeft" class="carousel slide shadow-sm " data-ride="carousel">
                             <div class="carousel-inner">
                                 {% get_media_prefix as media_link %}
                                 {% for object in videos_left %}
@@ -140,10 +141,10 @@
 
         <div class="row about-page mx-auto" id="aboutUs">
             <div class=" col-lg-12 mx-auto ">
-                <h1 class=" my-2"><span class="about-us">About-<u style='color:#fff'>Us</u></span><span class="box"></span></h1>
+                <h1 class=" my-2"><span class="about-us">About-<u style='color:#fff; background-color:#03a9f4fc;'>us </u></span></h1>
             </div>
             <div class="col-lg-6 col-sm-12 my-2 about-text mx-auto ">
-                <p><i class="fas fa-feather-alt" style="font-size:24px; margin-right:10px;"></i>Human education facilitates human conduct and the development of humane society, otherwise education results in inhuman conduct and degradation of society and environment.
+                <p><i class="fas fa-feather-alt" style="font-size:24px; margin-right:10px; margin-top:2rem; "></i>Human education facilitates human conduct and the development of humane society, otherwise education results in inhuman conduct and degradation of society and environment.
 
                     The scope of education is to understand ones purposefulness or goal, both as an individual, as well as a society. Education should facilitate students to have the understanding, commitment, competence and the practice of living with definite Human conduct and to participate in the development of a humane society.
 
@@ -227,16 +228,16 @@
 <!--        <div>-->
 <!--            <h1 style="text-align:center;font-weight:bold;padding:50px;">Gallery</h1>-->
 <!--        </div>-->
-        <div>
-        <h1 class=" my-2" style ="padding:50px;">Gallery</h1></div>
-        <div class="container carou">
+        <div class="glimpse">
+        <h1 class=" my-2" id="glimpse">Glimpse of <u style='color:#fff; background-color:#03a9f4fc;'> UHVPE</u></h1></div>
+        <div class="container carou" style="padding:1rem 15rem 1rem 15rem;">
 
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"style="width: 100% !important; padding:5% !important;">
             {% if image_slider %}
           <div class="carousel-inner">
               {% for image in image_slider %}
               {% if forloop.counter == 1 %}
-            <div class="carousel-item active">
+            <div class="carousel-item active" >
               <img src="{{image.image.url}}"  class="d-block w-100 car" alt="..." >
             </div>
               {% else %}
@@ -260,18 +261,19 @@
 
             <!--/about page section-->
             <!--contact-us-->
-            <div class="row resource-page" id="contactUs" style="background-image:linear-gradient(to bottom , white,#8c8c89);">
+            <div class="row resource-page" id="contactUs" style="background-image:linear-gradient(to bottom , white,#27617b);
+             background-repeat:repeat-y; ">
                 <div class="col-12 mx-auto " >
-                    <h1 class="my-2"><span class="contact-us">Contact-<u style='color:#fff'>Us</u></span> <span class="contact-box"></span> </h1>
+                    <h1 class="my-2"><span class="contact-us">Contact-<u style='color:#fff; background-color:#03a9f4fc;'>us</u></span> </h1>
                 </div>
-                <div class="col-lg-4 mx-auto col-md-4 col-sm-12 contact-us-img-col" >
+                <div class="col-lg-4 mx-auto col-md-4 col-sm-12 contact-us-img-col " >
                     <img class="img-fluid contact-us-img " src="{%static 'image/contact-us-01.png' %}" alt="contact-us-image">
                 </div>
-                <div class="col-lg-6 col-sm-12 mx-auto">
+                <div class="col-lg-6 col-sm-12 mx-auto ">
                     <form id="contact-form" [formGroup]="contactForm" (ngSubmit)="submitForm()" class="contact-form" *ngIf="form_show">
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-12 mx-auto contact-email-box shadow">
-                                <p class="text-center text-danger">
+                                <p class="text-center text-danger" >
                                     {{form_error_message}}
                                 </p>
                                 <div class="row">
@@ -320,6 +322,7 @@
                     </form>
                 </div>
             </div>
+        <a href="#"  id="scroll" style="display: none;"><span></span></a>
             <!--/contact-us-->
 
             <!--/landing-page-->
@@ -351,7 +354,6 @@
                 document.getElementById('contact_error').innerHTML = "";
                 document.getElementById('message_error').innerHTML = "";
                 document.getElementById('captcha_error').innerHTML = "";
-
                 var email =  document.getElementById('email').value;
                 if (email == "") {
                     document.getElementById('email_error').innerHTML = "Cannot be empty";
@@ -433,16 +435,28 @@
 	  }
 	  var $subMenu = $(this).next(".dropdown-menu");
 	  $subMenu.toggleClass('show');
-
 	  $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
 		$('.dropdown-submenu .show').removeClass("show");
 	  });
-
 	  return false;
 	});
 })(jQuery)
         </script>
+<script>
+
+$(document).ready(function(){
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('#scroll').fadeIn();
+        } else {
+            $('#scroll').fadeOut();
+        }
+    });
+    $('#scroll').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+    });
+});
+</script>
     </body>
     </html>
-
-
