@@ -1,104 +1,191 @@
-<!--navbar starts-->
-<nav class=" row navbar navbar-expand-lg navbar-light  fixed-top ">
-    <div class="col-12 ">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars" style="font-size:24px;color:#fff;"></i>
-        </button>
-        <a class="navbar-brand active home" href="{%url 'home'%}"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
-        <div class=" collapse navbar-collapse " id="navbarTogglerDemo03">
+{% load staticfiles %}
+{% load static %}
+<!doctype html>
+<html lang="en">
 
-            <div class=" nav-options ">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-                <ul class=" navbar-nav mt-4  mt-lg-0 ">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >VE Cell</span></a>
-                        <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{%url 'vision-and-mission'%}">Vision and Mission</a></li>
-                         <li><a class="dropdown-item" href="{%url 'director-message'%}">Director Message</a></li>
-                         <li><a class="dropdown-item" href="{%url 'establishment'%}">Establishment</a></li>
-                         <li><a class="dropdown-item" href="{%url 'structure'%}">Structure of VE Cell</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Resources</span></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{%url 'syllabus'%}">Syllabus</a>
-                            <a class="dropdown-item" href="{%url 'book-and-authors'%}">About Book and Authors</a>
-                            <a class="dropdown-item" href="{%url 'unit-wise-notes'%}">Unit-wise Notes</a>
-                            <a class="dropdown-item" href="{%url 'video-lectures'%}">Topic-wise Video Lectures</a>
-                            <a class="dropdown-item" href="{%url 'unit-wise-ppt'%}">Unit-wise PPTs</a>
-                            <a class="dropdown-item" href="{%url 'UT-question-paper'%}">University Question Papers</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Activities</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{%url 'fdps'%}">FDPs</a></li>
-                            <li><a class="dropdown-item" href="{%url 'students-workshop'%}">Student's Workshops</a></li>
-                            <li><a class="dropdown-item" href="{%url 'event'%}">Upcoming Events</a></li>
-                            <li class="dropdown nav-item">
-                                <a class="dropdown-toggle nav-link dropdown-item" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 4px 24px">Clubs</a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown nav-item"><a class="dropdown-toggle nav-link dropdown-item" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 4px 24px" >Nature Club</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href ="{%url 'club_about'%}">About</a></li
-                                            <li><a class="dropdown-item" href="{%url 'club_activity'%}">Activity</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown nav-item"><a  class="dropdown-toggle nav-link dropdown-item" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 4px 24px">Health Club</a>
-                                    <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="{%url 'health_about'%}">About</a></li
-                                            <li><a class="dropdown-item" href="{%url 'health_activity'%}">Activity</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Impacts</span></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{%url 'impact-student'%}">Impacts on Students</a>
-                            <a class="dropdown-item" href="{%url 'impact-faculty'%}">Impacts on Faculty members</a>
-                        </div>
-                    </li>
-                    <!--
-                    <li class="nav-item">
-                        {% if page.page_name == "Home" %}
-                            <a class="nav-link" href="#contactUs"><span>Contact Us</span></a>
-                        {% else %}
-                            <a class="nav-link" href="/#contactUs"><span>Contact Us</span></a>
-                        {% endif %}
-                    </li>-->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Sharing</span></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{%url 'sharing_students'%}">Sharing Of Students</a>
-                            <a class="dropdown-item" href="{%url 'sharing_facultymember' %}">Sharing Of Faculty Members</a>
-                            <a class="dropdown-item" href="{%url 'alumni-sharing' %}">Sharing Of Alumni</a>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css">
 
+    <link rel="stylesheet" href="{%static 'css/header.css' %}">
 
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span >Contact Us</span></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{% url 'developer'%}">Developer</a>
-                            {% if page.page_name == "Home" %}
-                             <a class="dropdown-item" href="#contactUs">VE Cell</a>
-                            {% else %}
-                              <a class="dropdown-item" href="/#contactUs">Contact Us</a>
-                            {% endif %}
+    <title>Multi level hover dropdown Navbar for bootstrap 4</title>
+    <meta name="description" content="Multi level hover dropdown Navbar for bootstrap 4">
+    <meta name="keywords" content="Multi level hover dropdown Navbar for bootstrap 4">
+</head>
 
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
+<body>
+        <nav  class="navbar navbar-expand-lg navbar-light bg-dark sticky-top navbtn" id="main_navbar">
+                <a style="color: #fff; padding-left: 1%;" class="navbar-brand" href="{%url 'home'%}"><i class="fas fa-home"></i></a>
+              <button class="navbar-toggler navbtn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse navcont" id="navbarSupportedContent">
+                  <ul class="navbar-nav">
+                      <li  class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">VE Cell</a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{%url 'vision-and-mission'%}">Vision and Mission</a></li>
+                              <li><a class="dropdown-item" href="{%url 'director-message'%}">Director Message</a></li>
+                              <li><a class="dropdown-item" href="{%url 'establishment'%}">Establishment</a></li>
+                              <li><a class="dropdown-item" href="{%url 'structure'%}">Structure of VE Cell</a></li>
+                          </ul>
+                      </li>
+      
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Resources</a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{%url 'syllabus'%}">Syllabus</a></li>
+                              <li><a class="dropdown-item" href="{%url 'book-and-authors'%}">About Book and Author</a></li>
+                              <li><a class="dropdown-item" href="{%url 'unit-wise-notes'%}">Unit-wise Notes</a></li>
+                              <li><a class="dropdown-item" href="{%url 'video-lectures'%}">Topic-wise Video Lectures</a></li>
+                              <li><a class="dropdown-item" href="{%url 'unit-wise-ppt'%}">Unit-wise PPTs</a></li>
+                              <li><a class="dropdown-item" href="{%url 'UT-question-paper'%}">University Question Papers</a></li>
+                              <!-- <div class="dropdown-divider"></div>
+                              <li class="nav-link dropdown">
+                                  <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" role="button" href="#">New</a>
+                                  <ul class="dropdown-menu">
+                                      <li> <a class="dropdown-item" href="#"> else</a></li>
+                                      <li> <a class="dropdown-item" href="#"> else</a></li>
+                                      <li> <a class="dropdown-item" href="#"> else</a></li>
+                                      <li> <a class="dropdown-item" href="#"> else</a></li>
+                                  </ul>
+                              </li> -->
+                          </ul>
+                      </li>
+      
+      
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              Activities
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="{%url 'fdps'%}">FDPs</a></li>
+                              <li><a class="dropdown-item" href="{%url 'students-workshop'%}">Student's Workshop</a></li>
+                              <li><a class="dropdown-item" href="{%url 'event'%}">Upcoming Events</a></li>
+                              <div class="dropdown-divider"></div>
+                              <li class="nav-item dropdown">
+                                      <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+                                          aria-haspopup="true" aria-expanded="false">
+                                          Clubs
+                                      </a>
+                                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                          <li class="nav-item dropdown">
+                                                  <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                                                      aria-haspopup="true" aria-expanded="false">
+                                                      Nature Club
+                                                  </a>
+                                                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                                      <li><a class="dropdown-item" href="{%url 'club_about'%}">About</a></li>
+                                                      <li><a class="dropdown-item" href="{%url 'club_activity'%}">Activity</a></li>
+                                                  </ul>
+                                              </li>
+                                              <div class="dropdown-divider"></div>
+                                          <li class="nav-item dropdown">
+                                                  <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                                                      aria-haspopup="true" aria-expanded="false">
+                                                        Health Club
+                                                  </a>
+                                                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                                      <li><a class="dropdown-item" href="{%url 'health_about'%}">About</a></li>
+                                                      <li><a class="dropdown-item" href="{%url 'health_activity'%}">Activity</a></li>
+                                                  </ul>
+                                              </li>
+                                      </ul>
+                                  </li>
+                          </ul>
+                      </li>
+      
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Imapacts</a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{%url 'impact-student'%}">Imapacts on Student</a></li>
+                              <li><a class="dropdown-item" href="{%url 'impact-faculty'%}">Imapacts on Faculty members</a></li>
+                          </ul>
+                      </li>
+      
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Sharing</a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{%url 'sharing_students'%}">Sharing Of Students</a></li>
+                              <li><a class="dropdown-item" href="{%url 'sharing_facultymember' %}">Sharing Of Faculty Members</a></li>
+                              <li><a class="dropdown-item" href="{%url 'alumni-sharing' %}">Sharing Of Alumni</a></li>
+                          </ul>
+                      </li>
+      
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Contact Us</a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{% url 'developer'%}">Developer</a></li>
+                              {% if page.page_name == "Home" %}
+                              <li><a class="dropdown-item" href="#contactUs">VE Cell</a></li>
+                              {% else %}
+                              <li><a class="dropdown-item" href="/#contactUs">VE Cell</a></li>
+                              {% endif %}
+                          </ul>
+                      </li>
+      
+                  </ul>
+              </div>
+          </nav>
 
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="js/bootnavbar.js" ></script>
+    <script>
+        $(function () {
+            $('#main_navbar').bootnavbar();
+        })
+    </script>
+    <script type="text/javascript">
+        (function($) {
+    var defaults={
+        sm : 540,
+        md : 720,
+        lg : 960,
+        xl : 1140,
+        navbar_expand: 'lg'
+    };
+    $.fn.bootnavbar = function() {
 
-<!--navbar ends-->
+        var screen_width = $(document).width();
 
+        if(screen_width >= defaults.lg){
+            $(this).find('.dropdown').hover(function() {
+                $(this).addClass('show');
+                $(this).find('.dropdown-menu').first().addClass('show').addClass('animated fadeIn').one('animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd', function () {
+                    $(this).removeClass('animated fadeIn');
+                });
+            }, function() {
+                $(this).removeClass('show');
+                $(this).find('.dropdown-menu').first().removeClass('show');
+            });
+        }
+
+        $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+          if (!$(this).next().hasClass('show')) {
+            $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+          }
+          var $subMenu = $(this).next(".dropdown-menu");
+          $subMenu.toggleClass('show');
+
+          $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+            $('.dropdown-submenu .show').removeClass("show");
+          });
+
+          return false;
+        });
+    };
+})(jQuery);
+    </script>
+</body>
+
+</html>

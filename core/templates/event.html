@@ -8,6 +8,7 @@
     <title>Events</title>
     <link rel="stylesheet" href="{%static 'css/style.css' %}">
     <link rel="stylesheet" href="{%static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{%static 'css/header.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poiret+One" rel="stylesheet">
@@ -44,26 +45,55 @@
 
       {% include 'footer.html' %}
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script>
-            (function($){
-	$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
-	  if (!$(this).next().hasClass('show')) {
-		$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
-	  }
-	  var $subMenu = $(this).next(".dropdown-menu");
-	  $subMenu.toggleClass('show');
+ <script>
+        $(function () {
+            $('#main_navbar').bootnavbar();
+        })
+    </script>
+    <script type="text/javascript">
+        (function($) {
+    var defaults={
+        sm : 540,
+        md : 720,
+        lg : 960,
+        xl : 1140,
+        navbar_expand: 'lg'
+    };
+    $.fn.bootnavbar = function() {
 
-	  $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
-		$('.dropdown-submenu .show').removeClass("show");
-	  });
+        var screen_width = $(document).width();
 
-	  return false;
-	});
-})(jQuery)
-        </script>
+        if(screen_width >= defaults.lg){
+            $(this).find('.dropdown').hover(function() {
+                $(this).addClass('show');
+                $(this).find('.dropdown-menu').first().addClass('show').addClass('animated fadeIn').one('animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd', function () {
+                    $(this).removeClass('animated fadeIn');
+                });
+            }, function() {
+                $(this).removeClass('show');
+                $(this).find('.dropdown-menu').first().removeClass('show');
+            });
+        }
+
+        $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+          if (!$(this).next().hasClass('show')) {
+            $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+          }
+          var $subMenu = $(this).next(".dropdown-menu");
+          $subMenu.toggleClass('show');
+
+          $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+            $('.dropdown-submenu .show').removeClass("show");
+          });
+
+          return false;
+        });
+    };
+})(jQuery);
+    </script>
 </body>
 </html>
 
